@@ -5,10 +5,9 @@
 
 ##########
 # URL VARIABLES
-# Replace 'juanbardina' and 'your-repository-name' with your actual info
 url: "https://juanbardina.github.io"
-baseurl: "/your-repository-name"
-source-code: "https://github.com/juanbardina/your-repository-name"
+baseurl: "/Kiki"
+source-code: "https://github.com/juanbardina/Kiki"
 
 ##########
 # SITE SETTINGS
@@ -20,14 +19,13 @@ author: "Juan Bardina"
 
 ##########
 # COLLECTION SETTINGS
-# Ensure your CSV in the _data folder is named exactly 'posters.csv'
+# Your CSV file in the _data folder must be named 'posters.csv'
 metadata: "posters"
 
 ##########
 # ORGANIZATION SETTINGS
 organization-name: "Stanford Digital Humanities Archive"
 organization-link: "https://history.stanford.edu/"
-# Leave these empty to remove the default Idaho logos
 organization-logo-banner: ""
 organization-logo-nav: ""
 
@@ -38,7 +36,6 @@ organization-logo-nav: ""
 ##########
 # BUILD SETTINGS 
 lib-assets: "/assets/lib"
-# These files are ignored during the build process
 exclude: [docs/, Rakefile, rakelib/, README.md, LICENSE, CITATION.cff, CODE_OF_CONDUCT.md, CONTRIBUTING.md, SECURITY.md]
 sass:
   style: compressed
