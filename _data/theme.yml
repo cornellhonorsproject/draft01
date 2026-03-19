@@ -3,9 +3,9 @@
 ##########
 
 # Pick one of your 'objectid' names from posters.csv to be the main image
-featured-image: "poster_01"
+featured-image: "bay_area_punk_flyers_8161_the_farm_sf_club_1986_1_1_1"
 # This can be the same ID; it creates the background behind the title
-home-banner-image: "poster_01"
+home-banner-image: "bay_area_punk_flyers_8161_the_farm_sf_club_1986_1_1_1"
 
 # Button on the home page
 home-button-text: "Explore the Archive"
@@ -15,10 +15,10 @@ home-button-link: "/browse"
 # COLOR SETTINGS
 ##########
 
-# This will give your site a "Punk/DIY" look (Black header, Red accents)
+# This gives the site a Black header and Red accents (Punk/DIY aesthetic)
 navbar-color: "#000000"
 navbar-text-color: "#ffffff"
-boot-theme-colors: 
+boot-theme-colors:
   primary: "#cc0000"
   secondary: "#6c757d"
   success: "#28a745"
