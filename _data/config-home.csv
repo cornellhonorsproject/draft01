@@ -1,0 +1,3 @@
+section,section_name,field,display_name,btn
+Subjects,Top Subjects,subject,Browse by Subject,true
+Locations,Locations,location,Browse by Location,true
