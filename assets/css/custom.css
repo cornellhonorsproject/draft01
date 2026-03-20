@@ -37,3 +37,15 @@
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
+/* Make only the homepage middle banner full width */
+main#maincontent > .container.my-4 > div:first-child {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+}
+
+/* Keep the banner background filling nicely */
+main#maincontent > .container.my-4 > div:first-child {
+    background-size: cover !important;
+    background-position: center !important;
+}
