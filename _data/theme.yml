@@ -5,7 +5,7 @@
 # Pick one of your 'objectid' names from posters.csv to be the main image
 featured-image: "bay_area_punk_flyers_8161_the_farm_sf_club_1986_1_1_1"
 # This can be the same ID; it creates the background behind the title
-home-banner-image: "bay_area_punk_flyers_8161_the_farm_sf_club_1986_1_1_1"
+home-banner-image: "banner.jpg"
 
 # Button on the home page
 home-button-text: "Explore the Archive"
