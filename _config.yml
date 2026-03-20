@@ -26,8 +26,8 @@ metadata: "posters"
 # ORGANIZATION SETTINGS
 organization-name: "Cornell Music by CF"
 organization-link: "https://music.cornell.edu/"
-organization-logo-banner: ""
-organization-logo-nav: ""
+organization-logo-banner: false
+organization-logo-nav: false
 
 ##########
 # ROBOTS EXCLUDE
