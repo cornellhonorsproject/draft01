@@ -4,10 +4,9 @@
 ##########
 
 ##########
-# URL VARIABLES
-url: "https://juanbardina.github.io"
-baseurl: "/Kiki"
-source-code: "https://github.com/juanbardina/Kiki"
+url: "https://cornellhonorsproject.github.io"
+baseurl: "/punk_war_on_the_boulevard"
+source-code: "https://github.com/cornellhonorsproject/punk_war_on_the_boulevard"
 
 ##########
 # SITE SETTINGS
