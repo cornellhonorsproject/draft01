@@ -54,3 +54,31 @@
     max-width: 100% !important;
     width: 100% !important;
 }
+/* Make the featured image section full width */
+.featured-image {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Make the image fill the section */
+.featured-image img {
+    width: 100% !important;
+    max-width: none !important;
+    display: block;
+}
+
+/* Remove width limits from common wrapper elements */
+.featured-image .container,
+.featured-image .container-fluid,
+.featured-image .row,
+.featured-image .col,
+.featured-image .col-md-12,
+.featured-image .col-lg-12 {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
