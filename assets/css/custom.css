@@ -10,16 +10,8 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 1.1rem;
 }
-/* Make main banner full width */
-.featured-image,
-.home-feature,
-.hero,
-#home-banner {
-    width: 100vw;
-    max-width: 100vw;
-    margin-left: calc(-50vw + 50%);
-}
-/* Make the featured-image section use full browser width */
+
+/* Try to make the middle featured image full width */
 .featured-image {
     width: 100vw !important;
     max-width: 100vw !important;
@@ -28,49 +20,12 @@
     padding-right: 0 !important;
 }
 
-/* Make the image itself fill the section */
-.featured-image img {
-    width: 100% !important;
-    max-width: none !important;
-    display: block;
-}
-/* BREAK OUT of Bootstrap container */
-.featured-image {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    margin-left: calc(-50vw + 50%) !important;
-}
-
-/* Make image fill */
-.featured-image img {
-    width: 100% !important;
-    max-width: none !important;
-}
-
-/* REMOVE container restriction */
-.featured-image .container,
-.featured-image .row,
-.featured-image .col {
-    max-width: 100% !important;
-    width: 100% !important;
-}
-/* Make the featured image section full width */
-.featured-image {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    margin-left: calc(-50vw + 50%) !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-}
-
-/* Make the image fill the section */
 .featured-image img {
     width: 100% !important;
     max-width: none !important;
     display: block;
 }
 
-/* Remove width limits from common wrapper elements */
 .featured-image .container,
 .featured-image .container-fluid,
 .featured-image .row,
