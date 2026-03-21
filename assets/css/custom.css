@@ -1,35 +1,175 @@
-/* Force horizontal layout for Top Subjects and Locations */
-.card-body .row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
+/* Top banner title */
+#home-title-box h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 
-/* Ensure each column takes 48% width */
-.card-body .col-md-6 {
-    flex: 1 1 48%;  /* Ensures it is side by side with proper width */
-    margin-bottom: 15px;
+/* Tagline */
+#home-title-box p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
 }
 
-/* Styling for the tags (Top Subjects, Locations) */
-.card-body .badge,
-.card-body .btn-primary {
+/* Try to make the middle featured image full width */
+.featured-image {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.featured-image img {
+    width: 100% !important;
+    max-width: none !important;
+    display: block;
+}
+
+.featured-image .container,
+.featured-image .container-fluid,
+.featured-image .row,
+.featured-image .col,
+.featured-image .col-md-12,
+.featured-image .col-lg-12 {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Make only the homepage middle banner full width */
+main#maincontent > .container.my-4 > div:first-child {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+}
+
+/* Keep the banner background filling nicely */
+main#maincontent > .container.my-4 > div:first-child {
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+/* Force middle description text color */
+.page-description,
+.description,
+#description,
+.page-description p,
+.description p {
+    color: rgb(5, 14, 47) !important;
+}
+
+/* Description panel heading */
+main .card h2,
+main .card h3,
+main .card-header {
+    color: rgb(5, 14, 47) !important;
+}
+
+/* Right sidebar cards (Time Span, Top Subjects, etc.) */
+.col-md-4 .card {
+    background-color: #f8f9fb;
+    border: 1px solid #e0e3e8;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    padding: 10px;
+}
+
+/* Card titles */
+.col-md-4 .card h2,
+.col-md-4 .card h3,
+.col-md-4 .card-header {
+    color: rgb(5, 14, 47);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Remove strong blue from tags (Top Subjects, Locations) */
+.badge,
+.btn-primary {
     background-color: #e6e9f2 !important;
     color: rgb(5, 14, 47) !important;
-    border-radius: 6px;
-    padding: 6px 10px;
-    font-size: 0.9rem;
+    border: none;
 }
 
-/* Add hover effect */
-.card-body .badge:hover,
-.card-body .btn-primary:hover {
+/* Optional: softer hover */
+.badge:hover,
+.btn-primary:hover {
     background-color: #d4d9e6 !important;
 }
 
-/* Fix for the "Content" panel below */
+/* Add spacing between cards */
+.col-md-4 .card {
+    margin-bottom: 15px;
+}
+
+/* Buttons like "View Timeline" */
+.col-md-4 .btn {
+    background-color: rgb(5, 14, 47);
+    color: white;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.85rem;
+}
+
+/* Move Locations and Top Subjects into horizontal row */
+.row-cols-md-2 .card-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Keep cards looking clean and aligned */
+.card-body .col-md-6 {
+    flex: 0 0 48%;  /* Adjust to your layout */
+    margin-bottom: 10px;
+}
+
+/* Ensure Content panel (bottom) and cards above it are aligned */
+.card-body .col-md-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* Improve spacing for download button section */
 .collection-as-data {
-    margin-top: 20px;
-    padding-top: 15px;
+    margin-top: 15px;
+    padding-top: 10px;
+}
+
+/* Adjust Locations and Top Subjects layout */
+.row-cols-md-2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+/* Ensure the cards fit nicely in the row */
+.col-md-4 .card {
+    flex: 1 1 48%; /* Adjust width for responsive grid */
+    margin-bottom: 10px;
+    padding: 20px;
+    background-color: #f8f9fb;
+    border: 1px solid #e0e3e8;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Make card titles uniform */
+.card-header, .card-title {
+    color: rgb(5, 14, 47);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Fix the "view table" button */
+.card-footer .btn {
+    background-color: rgb(5, 14, 47);
+    color: white;
+    border-radius: 6px;
+    padding: 4px 10px;
 }
