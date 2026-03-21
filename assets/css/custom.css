@@ -12,33 +12,67 @@
 /* --- Panel Background Colors --- */
 
 /* 1. TOP & BOTTOM PANELS: Light Purple (RGB: 237, 237, 254 -> #ededfe) */
-/* This forces the background on the outer div AND any white boxes inside it */
+/* We target the row, the container, AND the card inside them to kill the white */
 .description, 
-#description, 
-.page-description,
+.page-description, 
+#description,
 .collection-as-data,
-.description .card,
-.collection-as-data .card,
-.collection-as-data .card-body {
+main#maincontent .container.my-4 > .row:first-child,
+main#maincontent .container.my-4 > .row:last-child,
+.description .card, 
+.collection-as-data .card {
     background-color: #ededfe !important; 
     color: rgb(5, 14, 47) !important;
     padding: 20px !important;
     border-radius: 10px !important;
     margin-bottom: 25px !important;
     border: 1px solid #c8d2dc !important;
-    box-shadow: none !important; /* Removes the "double box" look */
+    box-shadow: none !important;
 }
 
 /* 2. INFORMATION CARDS: Light Green (RGB: 250, 255, 240 -> #fafff0) */
 .col-md-4 .card, 
 .col-md-6 .card,
-#subjects,
-#locations {
+#subjects, #locations {
     background-color: #fafff0 !important;
     border: 1px solid #c8d2dc !important;
     border-radius: 10px !important;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     padding: 15px;
     margin-bottom: 20px;
     height: auto !important;
+}
+
+/* --- THE 12 SMALL RECTANGLES (RGB: 220, 240, 250 -> #dcf0fa) --- */
+/* This targets all types of buttons/tags inside your green and purple cards */
+.card-body .btn, 
+.card-body a.btn,
+.btn-primary, 
+.btn-outline-secondary, 
+.btn-sm,
+.btn-secondary {
+    background-color: #dcf0fa !important; 
+    color: rgb(5, 14, 47) !important;
+    border: 1px solid #adcbe3 !important;
+    border-radius: 5px !important;
+    margin: 4px !important;
+    box-shadow: none !important;
+}
+
+/* --- Cleanup & Alignment --- */
+.card h2, .card h3, .card-header {
+    background-color: transparent !important; 
+    color: rgb(5, 14, 47) !important;
+    font-weight: 600;
+    border: none !important;
+}
+
+.card-body {
+    background-color: transparent !important;
+}
+
+/* Carousel Styling */
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    padding: 10px;
+    border-radius: 5px;
 }
