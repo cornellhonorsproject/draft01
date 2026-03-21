@@ -1,3 +1,5 @@
+/* --- Typography & Banners --- */
+
 /* Top banner title */
 #home-title-box h1 {
     font-family: 'Oswald', sans-serif;
@@ -11,7 +13,7 @@
     font-size: 1.1rem;
 }
 
-/* Featured image section */
+/* Full-width Banner Image Handling */
 .featured-image {
     width: 100vw !important;
     max-width: 100vw !important;
@@ -26,105 +28,77 @@
     display: block;
 }
 
-.featured-image .container,
-.featured-image .container-fluid,
-.featured-image .row,
-.featured-image .col,
-.featured-image .col-md-12,
-.featured-image .col-lg-12 {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+/* --- Panel Background Colors --- */
+
+/* 1. Description & Collection as Data (RGB: 237, 237, 254 -> #ededfe) */
+.page-description,
+.description,
+#description,
+.collection-as-data {
+    background-color: #ededfe !important; 
+    color: rgb(5, 14, 47) !important;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
-/* Make the homepage middle banner full width */
+/* 2. All Information Cards (RGB: 240, 240, 250 -> #f0f0fa) */
+/* Targets Time Span, Content, Top Subjects, and Locations */
+.col-md-4 .card, 
+.col-md-6 .card {
+    background-color: #f0f0fa !important;
+    border: 1px solid #c8d2dc;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    padding: 15px;
+    margin-bottom: 20px;
+    height: 100%; /* Ensures side-by-side cards are equal height */
+}
+
+/* --- Card Content & Titles --- */
+
+/* Titles for all cards */
+.card h2, 
+.card h3, 
+.card-header {
+    color: rgb(5, 14, 47);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 0;
+}
+
+/* Ensure inner columns for Subjects/Locations are transparent to show card color */
+.card-body .col-md-6 {
+    background-color: transparent !important;
+    padding: 5px;
+}
+
+/* --- Carousel Styling --- */
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.carousel-item-title {
+    color: white !important;
+    font-weight: bold;
+}
+
+/* --- Layout Utilities --- */
+
+/* Spacing for the collection metadata section */
+.collection-as-data {
+    margin-top: 30px;
+    padding-top: 20px;
+}
+
+/* Responsive adjustments for the middle banner */
 main#maincontent > .container.my-4 > div:first-child {
     width: 100vw !important;
     max-width: 100vw !important;
     margin-left: calc(-50vw + 50%) !important;
-}
-
-/* Keep the banner background filling nicely */
-main#maincontent > .container.my-4 > div:first-child {
     background-size: cover !important;
     background-position: center !important;
-}
-
-/* Force description text color */
-.page-description,
-.description,
-#description,
-.page-description p,
-.description p {
-    color: rgb(5, 14, 47) !important;
-}
-
-/* Right sidebar cards (Time Span, Top Subjects, etc.) */
-.col-md-4 .card {
-    background-color: #f0fafa;
-    border: 1px solid #c8d2dc;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    padding: 10px;
-}
-
-/* Card titles */
-.col-md-4 .card h2,
-.col-md-4 .card h3,
-.col-md-4 .card-header {
-    color: rgb(5, 14, 47);
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-
-/* Carousel caption background and text color */
-.carousel-caption {
-    background-color: black !important;  /* Black background for the caption */
-    padding: 10px;  /* Padding around the caption */
-    border-radius: 5px;  /* Round corners */
-    opacity: 0.8; /* Adjust opacity */
-}
-
-.carousel-item-title {
-    color: white !important;  /* White text color */
-    font-weight: bold;  /* Make text bold */
-}
-
-/* Move Locations and Top Subjects into horizontal row */
-.row-cols-md-2 .card-body {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-/* Ensure each column fits side by side with proper width */
-.card-body .col-md-6 {
-    flex: 0 0 48%;  /* Adjusts the layout to fit 2 items per row */
-    margin-bottom: 15px;
-}
-
-/* Add light background color to cards */
-.card-body .col-md-6 {
-    background-color: #f2f7fc;
-    border-radius: 10px;
-    padding: 15px;
-}
-
-/* Align Content panel below */
-.collection-as-data {
-    margin-top: 20px;
-    padding-top: 15px;
-}
-/* Change background color of the Description panel */
-.page-description,
-.description,
-#description {
-    background-color: #ededfe !important;  /* Set background color */
-}
-
-/* Change background color of the Collection as Data panel */
-.collection-as-data {
-    background-color: #ededfe !important;  /* Set background color */
 }
