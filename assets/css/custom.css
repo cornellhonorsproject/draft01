@@ -117,3 +117,14 @@ main#maincontent > .container.my-4 > div:first-child {
     margin-top: 20px;
     padding-top: 15px;
 }
+/* Change background color of the Description panel */
+.page-description,
+.description,
+#description {
+    background-color: #ededfe !important;  /* Set background color */
+}
+
+/* Change background color of the Collection as Data panel */
+.collection-as-data {
+    background-color: #ededfe !important;  /* Set background color */
+}
