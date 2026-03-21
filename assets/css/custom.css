@@ -155,3 +155,10 @@ main .card-header {
     margin-top: 20px;
     padding-top: 15px;
 }
+/* Change text color and background */
+.sample-item-text { 
+    color: white !important;  /* Set text color to white */
+    background-color: black !important;  /* Set background to black */
+    padding: 5px;  /* Add padding around the text */
+    border-radius: 5px;  /* Optional: Round the corners */
+}
