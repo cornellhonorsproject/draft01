@@ -11,6 +11,16 @@
     font-size: 1.1rem;
 }
 
+/* Full-width Banner Image */
+.featured-image,
+main#maincontent > .container.my-4 > div:first-child {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
 /* --- Panel Background Colors --- */
 
 /* 1. TOP & BOTTOM PANELS: Light Purple (RGB: 237, 237, 254 -> #ededfe) */
@@ -18,39 +28,60 @@
 .description, 
 #description, 
 .page-description,
-.collection-as-data {
+.collection-as-data,
+#maincontent .container.my-4 > .row:first-child,
+#maincontent .container.my-4 > .row:last-child {
     background-color: #ededfe !important; 
     color: rgb(5, 14, 47) !important;
-    padding: 20px !important;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #c8d2dc;
+    padding: 25px !important;
+    border-radius: 10px !important;
+    margin-bottom: 25px !important;
+    border: 1px solid #c8d2dc !important;
 }
 
 /* 2. INFORMATION CARDS: Light Green (RGB: 250, 255, 240 -> #fafff0) */
 /* Targets Time Span, Content, Top Subjects, and Locations */
 .col-md-4 .card, 
-.col-md-6 .card {
+.col-md-6 .card,
+#subjects,
+#locations {
     background-color: #fafff0 !important;
-    border: 1px solid #c8d2dc;
-    border-radius: 10px;
+    border: 1px solid #c8d2dc !important;
+    border-radius: 10px !important;
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     padding: 15px;
     margin-bottom: 20px;
-    height: auto !important; /* Fixes the oversized/stretched issue */
+    height: auto !important;
 }
 
-/* --- Card Content & Titles --- */
+/* --- INTERNAL SMALL RECTANGLES (RGB: 220, 240, 250 -> #dcf0fa) --- */
+
+/* Targets the smaller buttons and tags inside the cards */
+.card-body .btn, 
+.card-body .btn-primary, 
+.card-body .btn-outline-secondary,
+.card-body .btn-sm {
+    background-color: #dcf0fa !important; 
+    color: rgb(5, 14, 47) !important;
+    border: 1px solid #adcbe3 !important;
+    border-radius: 5px !important;
+    font-weight: 500 !important;
+    margin: 3px !important;
+}
+
+/* --- Card Content & Cleanup --- */
 
 .card h2, 
 .card h3, 
 .card-header {
-    color: rgb(5, 14, 47);
+    background-color: transparent !important; 
+    color: rgb(5, 14, 47) !important;
     font-weight: 600;
-    margin-top: 0;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
 }
 
-/* Ensure inner alignment columns are transparent */
+.card-body,
 .card-body .col-md-6 {
     background-color: transparent !important;
     padding: 5px;
@@ -69,23 +100,7 @@
     font-weight: bold;
 }
 
-/* --- Layout Fixes --- */
-
-/* Full-width Banner Image */
-.featured-image {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    margin-left: calc(-50vw + 50%) !important;
-}
-
-main#maincontent > .container.my-4 > div:first-child {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    margin-left: calc(-50vw + 50%) !important;
-    background-size: cover !important;
-    background-position: center !important;
-}
-
+/* Spacing fix for bottom section */
 .collection-as-data {
     margin-top: 30px;
     clear: both;
