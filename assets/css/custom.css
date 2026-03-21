@@ -49,9 +49,11 @@ main#maincontent > .container.my-4 > div:first-child {
     background-size: cover !important;
     background-position: center !important;
 }
-/* Middle description text color */
+/* Force middle description text color */
 .page-description,
 .description,
-#description {
-    color: rgb(5, 14, 47);
+#description,
+.page-description p,
+.description p {
+    color: rgb(5, 14, 47) !important;
 }
