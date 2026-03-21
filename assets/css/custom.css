@@ -57,3 +57,9 @@ main#maincontent > .container.my-4 > div:first-child {
 .description p {
     color: rgb(5, 14, 47) !important;
 }
+/* Description panel heading */
+main .card h2,
+main .card h3,
+main .card-header {
+    color: rgb(5, 14, 47) !important;
+}
