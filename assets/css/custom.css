@@ -162,3 +162,11 @@ main .card-header {
     padding: 5px;  /* Add padding around the text */
     border-radius: 5px;  /* Optional: Round the corners */
 }
+/* Modify carousel caption text style */
+.carousel-caption {
+    color: white !important;  /* Set text color to white */
+    background-color: black !important;  /* Set background color to black */
+    padding: 10px;  /* Optional: Add padding around the text */
+    border-radius: 5px;  /* Optional: Round corners */
+    opacity: 0.8; /* Optional: Adjust opacity if needed */
+}
