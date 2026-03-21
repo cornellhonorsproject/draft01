@@ -164,3 +164,22 @@ main .card-header {
     border-radius: 5px;  /* Optional: Round corners */
     opacity: 0.8; /* Optional: Adjust opacity if needed */
 }
+/* Target the dynamic caption text */
+.carousel-item .carousel-caption,
+.featured-image .carousel-caption,
+.carousel-caption p,
+.carousel-caption h3 {
+    color: #ffffff !important;
+    background-color: rgba(0, 0, 0, 0.8) !important; /* solid-ish black */
+    padding: 10px 20px !important;
+    display: inline-block !important; /* keeps black box tight to text */
+    border-radius: 4px;
+    position: relative;
+    z-index: 10; /* keeps it above the image layer */
+}
+
+/* Ensure the container doesn't hide the background */
+.carousel-caption {
+    background: none !important; /* clears any default transparent gradients */
+    bottom: 20px; /* adjusts vertical position */
+}
