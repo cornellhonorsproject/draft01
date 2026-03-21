@@ -63,3 +63,48 @@ main .card h3,
 main .card-header {
     color: rgb(5, 14, 47) !important;
 }
+/* Right sidebar cards (Time Span, Top Subjects, etc.) */
+.col-md-4 .card {
+    background-color: #f8f9fb;
+    border: 1px solid #e0e3e8;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    padding: 10px;
+}
+
+/* Card titles */
+.col-md-4 .card h2,
+.col-md-4 .card h3,
+.col-md-4 .card-header {
+    color: rgb(5, 14, 47);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Remove strong blue from tags (Top Subjects, Locations) */
+.badge,
+.btn-primary {
+    background-color: #e6e9f2 !important;
+    color: rgb(5, 14, 47) !important;
+    border: none;
+}
+
+/* Optional: softer hover */
+.badge:hover,
+.btn-primary:hover {
+    background-color: #d4d9e6 !important;
+}
+
+/* Add spacing between cards */
+.col-md-4 .card {
+    margin-bottom: 15px;
+}
+
+/* Buttons like "View Timeline" */
+.col-md-4 .btn {
+    background-color: rgb(5, 14, 47);
+    color: white;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.85rem;
+}
