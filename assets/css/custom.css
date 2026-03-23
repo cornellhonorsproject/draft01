@@ -1,4 +1,7 @@
-/* --- Typography & banner --- */
+/* =========================
+   TYPOGRAPHY / BANNER
+   ========================= */
+
 #home-title-box h1 {
     font-family: 'Oswald', sans-serif;
     font-weight: 500;
@@ -10,7 +13,7 @@
     font-size: 1.1rem;
 }
 
-/* Full-width banner image */
+/* full-width banner */
 .featured-image,
 main#maincontent > .container.my-4 > div:first-child {
     width: 100vw !important;
@@ -20,7 +23,24 @@ main#maincontent > .container.my-4 > div:first-child {
     background-position: center !important;
 }
 
-/* --- General cards --- */
+.featured-image img,
+.featured-image .container,
+.featured-image .container-fluid,
+.featured-image .row,
+.featured-image .col,
+.featured-image .col-md-12,
+.featured-image .col-lg-12 {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    display: block;
+}
+
+/* =========================
+   GLOBAL CARD LOOK
+   ========================= */
+
 .card {
     border: 1px solid #c8d2dc !important;
     border-radius: 10px !important;
@@ -30,44 +50,82 @@ main#maincontent > .container.my-4 > div:first-child {
 .card h2,
 .card h3,
 .card-header {
-    background-color: transparent !important;
     color: rgb(5, 14, 47) !important;
-    font-weight: 600;
+    font-weight: 600 !important;
+    background: transparent !important;
     border: none !important;
 }
 
 .card-body {
-    background-color: transparent !important;
+    background: transparent !important;
 }
 
-/* --- DESCRIPTION panel --- */
-/* first card in left column of first row */
-main#maincontent .container.my-4 > .row.mt-4:first-of-type > .col-md-8 > .card:first-of-type,
-main#maincontent .container.my-4 > .row.mt-4:first-of-type > .col-md-8 > .card:first-of-type .card-body {
+/* =========================
+   DESCRIPTION PANEL
+   force exact lavender
+   ========================= */
+
+main#maincontent .row.mt-4:first-of-type > .col-md-8 > .card:first-of-type,
+main#maincontent .row.mt-4:first-of-type > .col-md-8 > .card:first-of-type .card-body,
+main#maincontent .row.mt-4:first-of-type > .col-md-8 > .card:first-of-type .card-title,
+main#maincontent .row.mt-4:first-of-type > .col-md-8 > .card:first-of-type p {
     background-color: rgb(237, 237, 254) !important;
     color: rgb(5, 14, 47) !important;
 }
 
-/* --- COLLECTION AS DATA panel --- */
-/* only the actual card, not the outer row/column */
-main#maincontent .container.my-4 > .row.mt-4:last-of-type > .col-md-12 > .card,
-main#maincontent .container.my-4 > .row.mt-4:last-of-type > .col-md-12 > .card .card-body {
-    background-color: rgb(237, 237, 254) !important;
-    color: rgb(5, 14, 47) !important;
+/* =========================
+   SAMPLE ITEMS CARD
+   leave white like now
+   ========================= */
+
+main#maincontent .row.mt-4:first-of-type > .col-md-8 > .card:nth-of-type(2),
+main#maincontent .row.mt-4:first-of-type > .col-md-8 > .card:nth-of-type(2) .card-body {
+    background-color: #ffffff !important;
 }
 
-/* --- Green information cards on right and lower row --- */
-.col-md-4 .card,
-.col-md-6 .card {
+/* =========================
+   RIGHT COLUMN CARDS
+   pale green
+   ========================= */
+
+main#maincontent .row.mt-4:first-of-type > .col-md-4 > .card,
+main#maincontent .row.mt-4:first-of-type > .col-md-4 > .card .card-body,
+main#maincontent .row.mt-4:first-of-type > .col-md-4 > .card .card-title,
+main#maincontent .row.mt-4:first-of-type > .col-md-4 > .card p {
     background-color: #fafff0 !important;
-    border: 1px solid #c8d2dc !important;
-    border-radius: 10px !important;
-    padding: 15px;
-    margin-bottom: 20px;
-    height: auto !important;
+    color: rgb(5, 14, 47) !important;
 }
 
-/* --- Buttons / tags --- */
+/* =========================
+   TOP SUBJECTS / LOCATIONS
+   pale green
+   ========================= */
+
+main#maincontent .row.mt-4:nth-of-type(2) > .col-md-6 > .card,
+main#maincontent .row.mt-4:nth-of-type(2) > .col-md-6 > .card .card-body,
+main#maincontent .row.mt-4:nth-of-type(2) > .col-md-6 > .card .card-title,
+main#maincontent .row.mt-4:nth-of-type(2) > .col-md-6 > .card p {
+    background-color: #fafff0 !important;
+    color: rgb(5, 14, 47) !important;
+}
+
+/* =========================
+   COLLECTION AS DATA
+   force exact lavender
+   ========================= */
+
+main#maincontent .row.mt-4:nth-of-type(3) > .col-md-12 > .card,
+main#maincontent .row.mt-4:nth-of-type(3) > .col-md-12 > .card .card-body,
+main#maincontent .row.mt-4:nth-of-type(3) > .col-md-12 > .card .card-title,
+main#maincontent .row.mt-4:nth-of-type(3) > .col-md-12 > .card p {
+    background-color: rgb(237, 237, 254) !important;
+    color: rgb(5, 14, 47) !important;
+}
+
+/* =========================
+   BUTTONS / TAGS
+   ========================= */
+
 .card-body .btn,
 .card-body a.btn,
 .btn-primary,
@@ -82,19 +140,17 @@ main#maincontent .container.my-4 > .row.mt-4:last-of-type > .col-md-12 > .card .
     box-shadow: none !important;
 }
 
-/* --- Carousel caption --- */
+/* =========================
+   CAROUSEL CAPTION
+   ========================= */
+
 .carousel-caption {
     background-color: rgba(0, 0, 0, 0.8) !important;
-    padding: 10px;
-    border-radius: 5px;
+    border-radius: 5px !important;
+    padding: 10px !important;
 }
 
 .carousel-item-title {
-    color: white !important;
-    font-weight: 600;
-}
-/* FORCE Description panel background */
-main#maincontent .row.mt-4:first-of-type .col-md-8 .card:first-child,
-main#maincontent .row.mt-4:first-of-type .col-md-8 .card:first-child .card-body {
-    background-color: rgb(237, 237, 254) !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
 }
