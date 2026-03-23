@@ -1,66 +1,36 @@
-/* --- Typography & Banners --- */
-#home-title-box h1 { font-family: 'Oswald', sans-serif; font-weight: 500; letter-spacing: 1px; }
-#home-title-box p { font-family: 'Open Sans', sans-serif; font-size: 1.1rem; }
+/* --- Typography & banner --- */
+#home-title-box h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
 
-/* Full-width Banner Image */
-.featured-image, main#maincontent > .container.my-4 > div:first-child {
-    width: 100vw !important; max-width: 100vw !important;
+#home-title-box p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+}
+
+/* Full-width banner image */
+.featured-image,
+main#maincontent > .container.my-4 > div:first-child {
+    width: 100vw !important;
+    max-width: 100vw !important;
     margin-left: calc(-50vw + 50%) !important;
-    background-size: cover !important; background-position: center !important;
+    background-size: cover !important;
+    background-position: center !important;
 }
 
-/* --- Panel Background Colors --- */
-
-/* 1. TOP & BOTTOM PANELS: Light Purple (RGB: 237, 237, 254 -> #ededfe) */
-/* We target the row, the container, AND the card inside them to kill the white */
-.description, 
-.page-description, 
-#description,
-.collection-as-data,
-main#maincontent .container.my-4 > .row:first-child,
-main#maincontent .container.my-4 > .row:last-child,
-.description .card, 
-.collection-as-data .card {
-    background-color: #ededfe !important; 
-    color: rgb(5, 14, 47) !important;
-    padding: 20px !important;
-    border-radius: 10px !important;
-    margin-bottom: 25px !important;
+/* --- General cards --- */
+.card {
     border: 1px solid #c8d2dc !important;
+    border-radius: 10px !important;
     box-shadow: none !important;
 }
 
-/* 2. INFORMATION CARDS: Light Green (RGB: 250, 255, 240 -> #fafff0) */
-.col-md-4 .card, 
-.col-md-6 .card,
-#subjects, #locations {
-    background-color: #fafff0 !important;
-    border: 1px solid #c8d2dc !important;
-    border-radius: 10px !important;
-    padding: 15px;
-    margin-bottom: 20px;
-    height: auto !important;
-}
-
-/* --- THE 12 SMALL RECTANGLES (RGB: 220, 240, 250 -> #dcf0fa) --- */
-/* This targets all types of buttons/tags inside your green and purple cards */
-.card-body .btn, 
-.card-body a.btn,
-.btn-primary, 
-.btn-outline-secondary, 
-.btn-sm,
-.btn-secondary {
-    background-color: #dcf0fa !important; 
-    color: rgb(5, 14, 47) !important;
-    border: 1px solid #adcbe3 !important;
-    border-radius: 5px !important;
-    margin: 4px !important;
-    box-shadow: none !important;
-}
-
-/* --- Cleanup & Alignment --- */
-.card h2, .card h3, .card-header {
-    background-color: transparent !important; 
+.card h2,
+.card h3,
+.card-header {
+    background-color: transparent !important;
     color: rgb(5, 14, 47) !important;
     font-weight: 600;
     border: none !important;
@@ -70,9 +40,56 @@ main#maincontent .container.my-4 > .row:last-child,
     background-color: transparent !important;
 }
 
-/* Carousel Styling */
+/* --- DESCRIPTION panel --- */
+/* first card in left column of first row */
+main#maincontent .container.my-4 > .row.mt-4:first-of-type > .col-md-8 > .card:first-of-type,
+main#maincontent .container.my-4 > .row.mt-4:first-of-type > .col-md-8 > .card:first-of-type .card-body {
+    background-color: rgb(237, 237, 254) !important;
+    color: rgb(5, 14, 47) !important;
+}
+
+/* --- COLLECTION AS DATA panel --- */
+/* only the actual card, not the outer row/column */
+main#maincontent .container.my-4 > .row.mt-4:last-of-type > .col-md-12 > .card,
+main#maincontent .container.my-4 > .row.mt-4:last-of-type > .col-md-12 > .card .card-body {
+    background-color: rgb(237, 237, 254) !important;
+    color: rgb(5, 14, 47) !important;
+}
+
+/* --- Green information cards on right and lower row --- */
+.col-md-4 .card,
+.col-md-6 .card {
+    background-color: #fafff0 !important;
+    border: 1px solid #c8d2dc !important;
+    border-radius: 10px !important;
+    padding: 15px;
+    margin-bottom: 20px;
+    height: auto !important;
+}
+
+/* --- Buttons / tags --- */
+.card-body .btn,
+.card-body a.btn,
+.btn-primary,
+.btn-outline-secondary,
+.btn-sm,
+.btn-secondary {
+    background-color: #dcf0fa !important;
+    color: rgb(5, 14, 47) !important;
+    border: 1px solid #adcbe3 !important;
+    border-radius: 5px !important;
+    margin: 4px !important;
+    box-shadow: none !important;
+}
+
+/* --- Carousel caption --- */
 .carousel-caption {
     background-color: rgba(0, 0, 0, 0.8) !important;
     padding: 10px;
     border-radius: 5px;
+}
+
+.carousel-item-title {
+    color: white !important;
+    font-weight: 600;
 }
