@@ -93,3 +93,8 @@ main#maincontent .container.my-4 > .row.mt-4:last-of-type > .col-md-12 > .card .
     color: white !important;
     font-weight: 600;
 }
+/* FORCE Description panel background */
+main#maincontent .row.mt-4:first-of-type .col-md-8 .card:first-child,
+main#maincontent .row.mt-4:first-of-type .col-md-8 .card:first-child .card-body {
+    background-color: rgb(237, 237, 254) !important;
+}
