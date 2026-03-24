@@ -24,9 +24,14 @@
             <a class="d-none d-md-block" href="{{ site.organization-link }}">
                 <img id="home-banner-logo" src="{{ site.organization-logo-nav | relative_url }}" alt="{{ site.organization-name | escape }} home" >
             </a>{% endif %}
-            <h1 class="display-4">{{ site.title }}</h1>
-            {% if site.tagline %}<p class="mb-0">{{ site.tagline }}</p>{% endif %}
+            
+            <h1 class="display-3" style="text-shadow: 2px 2px 10px rgba(0,0,0,1);">{{ site.title }}</h1>
+            
+            {% if site.tagline %}
+            <h4 class="fw-bold mb-0" style="text-shadow: 1px 1px 5px rgba(0,0,0,1);">{{ site.tagline }}</h4>
+            {% endif %}
         </div>
+        
         {% unless site.data.theme.featured-image contains '/' %}
         <div class="position-absolute bottom-0 end-0 px-2">
             <a class="text-white fs-6" style="text-shadow: 1px 1px 3px #000;" href="{{ site.data.featured_item.link | relative_url }}" title="{{ site.data.featured_item.alt | escape }}">Featured Image</a>
