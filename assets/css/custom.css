@@ -233,3 +233,37 @@
 .carousel-control-next-icon {
     filter: invert(1) drop-shadow(0px 0px 2px rgba(0,0,0,0.5)) !important;
 }
+/* --- STEP 3: THE FINAL CLEANUP --- */
+
+/* 1. Remove the "Fading" effect (Mask) from the images */
+.carousel-item img {
+    opacity: 1 !important;
+    filter: none !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+}
+
+/* 2. Kill the ghost frame/shadow around the carousel */
+#imageCarousel, 
+.carousel-inner, 
+.carousel-item {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* 3. Center the View Button perfectly */
+.carousel-caption {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: rgba(255, 255, 255, 0.85) !important; /* Slightly more transparent */
+    border: 1px solid #c8d2dc !important; /* Matches your other box outlines */
+}
+
+/* 4. Fix the View Item button alignment */
+.carousel-caption .btn {
+    margin: 5px 0 0 0 !important; /* Removes side margins to center correctly */
+    display: inline-block !important;
+}
