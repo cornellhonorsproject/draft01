@@ -11,26 +11,22 @@
 
 /* --- Panel Background Colors --- */
 
-/* 1. TOP & BOTTOM PANELS: Light Purple (RGB: 237, 237, 254 -> #ededfe) */
-/* We target the row, the container, AND the card inside them to kill the white */
+/* 1. TOP & BOTTOM PANELS: Light Purple (#ededfe) */
 .description, 
 .page-description, 
 #description,
 .collection-as-data,
-main#maincontent .container.my-4 > .row:first-child,
-main#maincontent .container.my-4 > .row:last-child,
 .description .card, 
-.collection-as-data .card {
+.collection-as-data .card,
+#data-download-container {
     background-color: #ededfe !important; 
     color: rgb(5, 14, 47) !important;
-    padding: 20px !important;
     border-radius: 10px !important;
-    margin-bottom: 25px !important;
     border: 1px solid #c8d2dc !important;
     box-shadow: none !important;
 }
 
-/* 2. INFORMATION CARDS: Light Green (RGB: 250, 255, 240 -> #fafff0) */
+/* 2. INFORMATION CARDS: Light Green (#fafff0) */
 .col-md-4 .card, 
 .col-md-6 .card,
 #subjects, #locations {
@@ -39,11 +35,9 @@ main#maincontent .container.my-4 > .row:last-child,
     border-radius: 10px !important;
     padding: 15px;
     margin-bottom: 20px;
-    height: auto !important;
 }
 
-/* --- THE 12 SMALL RECTANGLES (RGB: 220, 240, 250 -> #dcf0fa) --- */
-/* This targets all types of buttons/tags inside your green and purple cards */
+/* --- THE SMALL RECTANGLES (Buttons/Tags) --- */
 .card-body .btn, 
 .card-body a.btn,
 .btn-primary, 
@@ -66,13 +60,32 @@ main#maincontent .container.my-4 > .row:last-child,
     border: none !important;
 }
 
+/* Fix: Allow Card Body to inherit the purple/green background instead of being transparent */
 .card-body {
-    background-color: transparent !important;
+    background-color: inherit !important;
 }
 
-/* Carousel Styling */
+/* --- Carousel Styling Fixes --- */
 .carousel-caption {
     background-color: rgba(0, 0, 0, 0.8) !important;
     padding: 10px;
     border-radius: 5px;
+}
+
+/* Force Carousel text to stay white despite global button rules */
+.carousel-item-title, 
+.carousel-caption h3 {
+    color: #ffffff !important;
+}
+
+/* Specifically style the 'View Item' button in carousel to be readable */
+.carousel-caption .btn {
+    color: #ffffff !important;
+    background-color: #004085 !important; /* Darker blue for contrast */
+    border: 1px solid #ffffff !important;
+}
+
+.carousel-control-prev-icon, 
+.carousel-control-next-icon {
+    filter: invert(1); /* Ensures arrows remain visible */
 }
