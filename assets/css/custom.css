@@ -1,5 +1,13 @@
 /* --- Typography & Banners --- */
-#home-title-box h1 { font-family: 'Oswald', sans-serif; font-weight: 500; letter-spacing: 1px; }
+/* Importing a more "archival/punk" font for the header */
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Oswald:wght@500&display=swap');
+
+#home-title-box h1 { 
+    font-family: 'Special Elite', serif; /* Stencil/Typewriter feel */
+    font-weight: 500; 
+    letter-spacing: 1px; 
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
 #home-title-box p { font-family: 'Open Sans', sans-serif; font-size: 1.1rem; }
 
 /* Full-width Banner Image */
@@ -12,18 +20,14 @@
 /* --- Panel Background Colors --- */
 
 /* 1. TOP & BOTTOM PANELS: Light Purple (#ededfe) */
-.description, 
-.page-description, 
-#description,
-.collection-as-data,
-.description .card, 
-.collection-as-data .card,
-#data-download-container {
+/* We now use a specific class .purple-card in the HTML */
+.purple-card {
     background-color: #ededfe !important; 
     color: rgb(5, 14, 47) !important;
-    border-radius: 10px !important;
     border: 1px solid #c8d2dc !important;
+    border-radius: 10px !important;
     box-shadow: none !important;
+    margin-bottom: 20px;
 }
 
 /* 2. INFORMATION CARDS: Light Green (#fafff0) */
@@ -50,19 +54,17 @@
     border-radius: 5px !important;
     margin: 4px !important;
     box-shadow: none !important;
+    font-weight: 500;
 }
 
 /* --- Cleanup & Alignment --- */
-.card h2, .card h3, .card-header {
-    background-color: transparent !important; 
-    color: rgb(5, 14, 47) !important;
-    font-weight: 600;
-    border: none !important;
-}
-
-/* Fix: Allow Card Body to inherit the purple/green background instead of being transparent */
 .card-body {
     background-color: inherit !important;
+}
+
+.card-title {
+    color: rgb(5, 14, 47) !important;
+    font-weight: 600;
 }
 
 /* --- Carousel Styling Fixes --- */
@@ -72,20 +74,18 @@
     border-radius: 5px;
 }
 
-/* Force Carousel text to stay white despite global button rules */
 .carousel-item-title, 
 .carousel-caption h3 {
     color: #ffffff !important;
 }
 
-/* Specifically style the 'View Item' button in carousel to be readable */
 .carousel-caption .btn {
     color: #ffffff !important;
-    background-color: #004085 !important; /* Darker blue for contrast */
+    background-color: #004085 !important; 
     border: 1px solid #ffffff !important;
 }
 
 .carousel-control-prev-icon, 
 .carousel-control-next-icon {
-    filter: invert(1); /* Ensures arrows remain visible */
+    filter: invert(1);
 }
