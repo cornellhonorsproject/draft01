@@ -139,3 +139,57 @@
     color: rgb(5, 14, 47) !important;
     border: 1px solid #adcbe3 !important;
 }
+/* --- STEP 1: CLEAN SAMPLE ITEMS (WHITE BG / NO FRAME) --- */
+
+/* 1. Remove the outer frame and the light green/purple background */
+.card:has(#imageCarousel), 
+#imageCarousel-container {
+    background-color: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 2. Make the inner carousel background solid white */
+#imageCarousel, 
+#imageCarousel .carousel-inner, 
+#imageCarousel .carousel-item {
+    background-color: #ffffff !important;
+    border: none !important;
+}
+
+/* 3. Move the Description & Button BELOW the image */
+.carousel-caption {
+    position: relative !important; /* This "unfloats" the dark band */
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-color: #ffffff !important; /* Band becomes white */
+    padding: 15px 0 !important;
+    margin-top: 10px;
+}
+
+/* 4. Style the Description (The white box in your drawing) */
+.carousel-item-title, 
+.carousel-caption h3 {
+    color: #000000 !important;
+    background: #ffffff !important;
+    border: 1px solid #dee2e6 !important; /* Subtle border for the text box */
+    display: inline-block;
+    padding: 5px 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* 5. Center the 'View Item' button below the text */
+.carousel-caption .btn {
+    display: table;
+    margin: 10px auto 0 auto !important;
+    background-color: #dcf0fa !important;
+    color: #050e2f !important;
+}
+
+/* 6. Turn the navigation arrows dark (Grey/Black) */
+.carousel-control-prev-icon, 
+.carousel-control-next-icon {
+    filter: invert(1) grayscale(1);
+}
