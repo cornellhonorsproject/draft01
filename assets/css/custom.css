@@ -3,19 +3,31 @@
 /* 1. TYPOGRAPHY & BANNERS */
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Oswald:wght@500&display=swap');
 
+/* Main Header: Transparent background with white floating text */
+#home-title-box {
+    background-color: transparent !important;
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
 #home-title-box h1 { 
     font-family: 'Special Elite', serif; 
     font-weight: 500; 
     letter-spacing: 1px; 
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    color: #ffffff !important;
+    /* Added stronger shadow so white text is readable against busy posters */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0px 0px 12px rgba(0,0,0,0.5) !important;
 }
 
 #home-title-box p { 
     font-family: 'Open Sans', sans-serif; 
     font-size: 1.1rem; 
+    color: #ffffff !important;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.8) !important;
 }
 
-/* Full-width Banner Image */
+/* Full-width Banner Image Setup */
 .featured-image, main#maincontent > .container.my-4 > div:first-child {
     width: 100vw !important; 
     max-width: 100vw !important;
@@ -43,7 +55,7 @@
 
 /* 3. SAMPLE ITEMS: THE FLOATING CAPTION LOOK */
 
-/* Ensure the main container is invisible/transparent */
+/* Ensure the main container and carousel stay transparent */
 #imageCarousel, 
 .card.border-0.bg-transparent,
 .carousel-inner {
@@ -53,7 +65,7 @@
     box-shadow: none !important;
 }
 
-/* Poster Presentation */
+/* Poster Image Presentation */
 #imageCarousel .carousel-item img {
     opacity: 1 !important;
     filter: brightness(100%) !important;
@@ -74,18 +86,18 @@
     transform: translateX(-50%) !important;
     width: 100% !important;
     
-    /* Remove the box container entirely */
+    /* Ensure the caption box itself has no background */
     background: none !important;
     border: none !important;
 }
 
-/* The Title: Black letters on a tight white highlight for readability */
+/* The Title: Black text on a tight white highlight */
 .carousel-item-title, 
 .carousel-caption h3 {
     color: #000000 !important;
     font-weight: 700 !important;
     font-size: 1.25rem !important;
-    /* Highlight box that shrinks to text size */
+    /* Highlight box that shrinks to text size only */
     background-color: rgba(255, 255, 255, 0.85) !important; 
     padding: 4px 12px !important;
     border-radius: 4px !important;
@@ -104,7 +116,7 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.15) !important;
 }
 
-/* 5. UI CONTROLS (Dark arrows for white background) */
+/* 5. UI CONTROLS (Dark arrows for readability) */
 .carousel-control-prev-icon, 
 .carousel-control-next-icon {
     filter: invert(1) drop-shadow(0px 0px 2px rgba(255,255,255,0.5)) !important;
