@@ -111,3 +111,12 @@
 .carousel-control-next-icon {
     filter: invert(1);
 }
+/* Targeted override for the Sample Items dark background */
+#imageCarousel.bg-dark {
+    background-color: rgb(255, 250, 250) !important;
+}
+
+/* Ensure the inner items also lose the dark background */
+#imageCarousel .carousel-inner {
+    background-color: rgb(255, 250, 250) !important;
+}
