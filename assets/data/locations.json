@@ -9,12 +9,16 @@ layout: null
   {%- endif -%}
 {%- endfor -%}
 {%- assign raw_locations = locations_string | split: ";" | compact | uniq | sort -%}
-{%- assign final_locations = "" | split: "," -%}
-{%- for l in raw_locations -%}
-  {%- assign cleaned = l | strip -%}
-  {%- if cleaned != "" -%}
-    {%- capture loc_obj -%}{"location":{{cleaned|jsonify}},"link":{{cleaned|url_param_escape|prepend:'/browse.html#'|absolute_url|jsonify}}}{%- endcapture -%}
-    {%- assign final_locations = final_locations | push: loc_obj -%}
-  {%- endif -%}
-{%- endfor -%}
-{"locations": [ {{ final_locations | join: "," }} ]}
+{
+  "locations": [
+    {%- for l in raw_locations -%}
+      {%- assign cleaned = l | strip -%}
+      {%- if cleaned != "" -%}
+        {
+          "location": {{ cleaned | jsonify }},
+          "link": {{ cleaned | url_param_escape | prepend: '/browse.html#' | absolute_url | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
+      {%- endif -%}
+    {%- endfor -%}
+  ]
+}
