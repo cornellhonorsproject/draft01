@@ -1,16 +1,15 @@
 ---
-# Default home page with boxes providing collection stats
+# Updated home page with transparent banner and floating text
 layout: page
 ---
 
-<div style="background-image: url('{{ "/assets/img/banner2.jpg" | relative_url }}'); 
+<div id="home-banner" style="background-image: url('{{ "/assets/img/banner2.jpg" | relative_url }}'); 
             height: 400px; 
             background-size: cover; 
             background-position: center;
             position: relative;">
 
-  <div style="background: rgba(0,0,0,0.4); 
-              position: absolute; 
+  <div style="position: absolute; 
               top: 0; 
               left: 0; 
               width: 100%; 
@@ -21,8 +20,9 @@ layout: page
               left: 50%; 
               transform: translateX(-50%);
               color: white;
-              text-align: center;">
-      <h4 style="margin:0;">
+              text-align: center;
+              z-index: 10;">
+      <h4 style="margin:0; text-shadow: 2px 2px 8px rgba(0,0,0,1);">
           464 images of punk political statements
       </h4>
   </div>
