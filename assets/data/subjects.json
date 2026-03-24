@@ -1,19 +1,34 @@
 ---
 # find and count unique subjects
+layout: null
 ---
 {%- assign items = site.data.posters -%}
-{%- assign subjects = "" -%}
+{%- assign subjects_string = "" -%}
+
 {%- for item in items -%}
-  {%- if item.subject -%}
-    {%- assign subjects = subjects | append: ";" | append: item.subject -%}
+  {%- if item.subject and item.subject != "" -%}
+    {%- assign subjects_string = subjects_string | append: ";" | append: item.subject -%}
   {%- endif -%}
 {%- endfor -%}
-{%- assign uniqSubjects = subjects | split: ";" | compact | uniq | sort -%}
-{ 
+
+{%- assign raw_subjects = subjects_string | split: ";" | compact | uniq | sort -%}
+{%- assign final_subjects = "" | split: "," -%}
+
+{%- for s in raw_subjects -%}
+  {%- assign cleaned = s | strip -%}
+  {%- if cleaned != "" -%}
+    {%- capture subject_obj -%}
+      {
+        "subject": {{ cleaned | jsonify }},
+        "link": {{ cleaned | url_param_escape | prepend: '/browse.html#' | absolute_url | jsonify }}
+      }
+    {%- endcapture -%}
+    {%- assign final_subjects = final_subjects | push: subject_obj -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{
   "subjects": [
-    {% for s in uniqSubjects %}{% if s != "" %}{ 
-      "subject" : {{ s | strip | jsonify }}, 
-      "link" : {{ s | strip | url_param_escape | prepend: '/browse.html#' | absolute_url | jsonify }} 
-    }{% unless forloop.last %},{% endunless %}{% endif %}{% endfor %}
+    {{ final_subjects | join: "," }}
   ]
 }
