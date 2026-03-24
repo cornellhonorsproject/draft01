@@ -1,6 +1,6 @@
 /* --- Reagan-Bush Era Punk Poster Archive: Master Stylesheet --- */
 
-/* 1. Typography & Banners */
+/* 1. TYPOGRAPHY & BANNERS */
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Oswald:wght@500&display=swap');
 
 #home-title-box h1 { 
@@ -24,7 +24,7 @@
     background-position: center !important;
 }
 
-/* 2. Panel Background Colors (Subjects, Locations, Info Cards) */
+/* 2. PANEL COLORS (Subjects, Locations, Info Cards) */
 
 /* TOP & BOTTOM PANELS: Light Purple */
 .purple-card {
@@ -36,7 +36,7 @@
     margin-bottom: 20px;
 }
 
-/* INFORMATION CARDS & SECTIONS: Light Green */
+/* INFORMATION CARDS: Light Green */
 .col-md-4 .card, 
 .col-md-6 .card,
 #subjects, #locations {
@@ -47,24 +47,79 @@
     margin-bottom: 20px;
 }
 
-/* 3. TARGETED SAMPLE ITEMS CAROUSEL (Snow White / No Frame) */
+/* 3. THE "SAMPLE ITEMS" CAROUSEL (CLEAN WHITE STYLE) */
 
-/* This targets only the carousel area to avoid leaking into other cards */
+/* Remove outer frames and set background to white */
+.card:has(#imageCarousel), 
 #image-carousel, 
-#image-carousel .carousel-inner, 
-#image-carousel .carousel-item {
-    background-color: rgb(255, 250, 250) !important;
+#imageCarousel, 
+.carousel-inner, 
+.carousel-item {
+    background-color: #ffffff !important;
     border: none !important;
     box-shadow: none !important;
+    outline: none !important;
 }
 
-/* Remove the border from the specific card containing the carousel */
-.card:has(#image-carousel) {
-    border: none !important;
-    background-color: rgb(255, 250, 250) !important;
+/* Remove image fading/masking to show true colors */
+#imageCarousel .carousel-item img {
+    opacity: 1 !important;
+    filter: brightness(100%) !important;
+    -webkit-filter: brightness(100%) !important;
 }
 
-/* 4. Small Rectangles (Buttons/Tags) */
+/* 4. CAPTION BOX & BUTTON (CENTERED ON IMAGE) */
+
+.carousel-caption {
+    /* Layout */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: absolute !important;
+    bottom: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    
+    /* Styling */
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid #c8d2dc !important;
+    border-radius: 8px !important;
+    padding: 15px !important;
+    width: auto !important;
+    min-width: 250px !important;
+}
+
+/* Title Text (Black) */
+.carousel-item-title, 
+.carousel-caption h3 {
+    color: #000000 !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 10px !important;
+    text-shadow: none !important;
+}
+
+/* View Item Button (Light Blue) */
+.carousel-caption .btn {
+    background-color: #dcf0fa !important;
+    color: rgb(5, 14, 47) !important;
+    border: 1px solid #adcbe3 !important;
+    font-weight: 600 !important;
+    padding: 5px 20px !important;
+    margin: 5px 0 0 0 !important;
+    display: inline-block !important;
+}
+
+/* 5. UI ELEMENTS (Arrows & Tags) */
+
+/* Navigation Arrows (Dark for white background) */
+.carousel-control-prev-icon, 
+.carousel-control-next-icon {
+    filter: invert(1) drop-shadow(0px 0px 2px rgba(0,0,0,0.5)) !important;
+}
+
+/* Small Tag Buttons in Cards */
 .card-body .btn, 
 .card-body a.btn,
 .btn-primary, 
@@ -80,190 +135,11 @@
     font-weight: 500;
 }
 
-/* 5. Cleanup & Carousel Captions */
-.card-body {
-    background-color: inherit !important;
-}
-
 .card-title {
     color: rgb(5, 14, 47) !important;
     font-weight: 600;
 }
 
-.carousel-caption {
-    background-color: rgba(0, 0, 0, 0.8) !important;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.carousel-item-title, 
-.carousel-caption h3 {
-    color: #ffffff !important;
-}
-
-.carousel-caption .btn {
-    color: #ffffff !important;
-    background-color: #004085 !important; 
-    border: 1px solid #ffffff !important;
-}
-
-.carousel-control-prev-icon, 
-.carousel-control-next-icon {
-    filter: invert(1);
-}
-/* Targeted override for the Sample Items dark background */
-#imageCarousel.bg-dark {
-    background-color: rgb(255, 250, 250) !important;
-}
-
-/* Ensure the inner items also lose the dark background */
-#imageCarousel .carousel-inner {
-    background-color: rgb(255, 250, 250) !important;
-}
-/* 1. Change the caption strip background to Snow White */
-.carousel-caption {
-    background-color: rgb(255, 250, 250) !important;
-    border-top: 1px solid #c8d2dc; /* Optional: adds a subtle line to define the top of the strip */
-}
-
-/* 2. Change the text inside the strip to dark navy for readability */
-.carousel-item-title, 
-.carousel-caption h3, 
-.carousel-caption p {
-    color: rgb(5, 14, 47) !important;
-}
-
-/* 3. Change the 'View Item' button inside the strip to match your other buttons */
-.carousel-caption .btn {
-    background-color: #dcf0fa !important; 
-    color: rgb(5, 14, 47) !important;
-    border: 1px solid #adcbe3 !important;
-}
-/* --- STEP 1: CLEAN SAMPLE ITEMS (WHITE BG / NO FRAME) --- */
-
-/* 1. Remove the outer frame and the light green/purple background */
-.card:has(#imageCarousel), 
-#imageCarousel-container {
-    background-color: #ffffff !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-/* 2. Make the inner carousel background solid white */
-#imageCarousel, 
-#imageCarousel .carousel-inner, 
-#imageCarousel .carousel-item {
-    background-color: #ffffff !important;
-    border: none !important;
-}
-
-/* 3. Move the Description & Button BELOW the image */
-.carousel-caption {
-    position: relative !important; /* This "unfloats" the dark band */
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    background-color: #ffffff !important; /* Band becomes white */
-    padding: 15px 0 !important;
-    margin-top: 10px;
-}
-
-/* 4. Style the Description (The white box in your drawing) */
-.carousel-item-title, 
-.carousel-caption h3 {
-    color: #000000 !important;
-    background: #ffffff !important;
-    border: 1px solid #dee2e6 !important; /* Subtle border for the text box */
-    display: inline-block;
-    padding: 5px 15px;
-    font-size: 1.1rem;
-    font-weight: bold;
-}
-
-/* 5. Center the 'View Item' button below the text */
-.carousel-caption .btn {
-    display: table;
-    margin: 10px auto 0 auto !important;
-    background-color: #dcf0fa !important;
-    color: #050e2f !important;
-}
-
-/* 6. Turn the navigation arrows dark (Grey/Black) */
-.carousel-control-prev-icon, 
-.carousel-control-next-icon {
-    filter: invert(1) grayscale(1);
-}
-/* --- STEP 2: CAPTION TEXT & BUTTON STYLING --- */
-
-/* 1. Position the caption back over the bottom of the image, but cleanly */
-.carousel-caption {
-    position: absolute !important;
-    bottom: 20px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    background-color: rgba(255, 255, 255, 0.9) !important; /* Semi-transparent white background */
-    padding: 15px !important;
-    border-radius: 8px !important;
-    width: 80% !important;
-    max-width: 400px !important;
-}
-
-/* 2. Style the Title (Black letters) */
-.carousel-item-title, 
-.carousel-caption h3 {
-    color: #000000 !important;
-    font-weight: 700 !important;
-    font-size: 1.1rem !important;
-    margin-bottom: 10px !important;
-    text-shadow: none !important; /* Removes the "glow" from old dark theme */
-}
-
-/* 3. Style the View Button (Light Blue background) */
-.carousel-caption .btn {
-    background-color: #dcf0fa !important; /* The light blue from your other buttons */
-    color: #050e2f !important;           /* Dark navy text */
-    border: 1px solid #adcbe3 !important;
-    font-weight: 600 !important;
-    padding: 5px 20px !important;
-    text-transform: none !important;
-}
-
-/* 4. Ensure the navigation arrows are visible on the white sides */
-.carousel-control-prev-icon, 
-.carousel-control-next-icon {
-    filter: invert(1) drop-shadow(0px 0px 2px rgba(0,0,0,0.5)) !important;
-}
-/* --- STEP 3: THE FINAL CLEANUP --- */
-
-/* 1. Remove the "Fading" effect (Mask) from the images */
-.carousel-item img {
-    opacity: 1 !important;
-    filter: none !important;
-    mask-image: none !important;
-    -webkit-mask-image: none !important;
-}
-
-/* 2. Kill the ghost frame/shadow around the carousel */
-#imageCarousel, 
-.carousel-inner, 
-.carousel-item {
-    border: none !important;
-    box-shadow: none !important;
-    outline: none !important;
-}
-
-/* 3. Center the View Button perfectly */
-.carousel-caption {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background-color: rgba(255, 255, 255, 0.85) !important; /* Slightly more transparent */
-    border: 1px solid #c8d2dc !important; /* Matches your other box outlines */
-}
-
-/* 4. Fix the View Item button alignment */
-.carousel-caption .btn {
-    margin: 5px 0 0 0 !important; /* Removes side margins to center correctly */
-    display: inline-block !important;
+.card-body {
+    background-color: inherit !important;
 }
