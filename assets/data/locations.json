@@ -1,3 +1,6 @@
+---
+layout: null
+---
 {%- assign items = site.data.posters -%}
 {%- assign locations_string = "" -%}
 {%- for item in items -%}
@@ -10,17 +13,8 @@
 {%- for l in raw_locations -%}
   {%- assign cleaned = l | strip -%}
   {%- if cleaned != "" -%}
-    {%- capture loc_obj -%}
-      {
-        "location": {{ cleaned | jsonify }},
-        "link": {{ cleaned | url_param_escape | prepend: '/browse.html#' | absolute_url | jsonify }}
-      }
-    {%- endcapture -%}
+    {%- capture loc_obj -%}{"location":{{cleaned|jsonify}},"link":{{cleaned|url_param_escape|prepend:'/browse.html#'|absolute_url|jsonify}}}{%- endcapture -%}
     {%- assign final_locations = final_locations | push: loc_obj -%}
   {%- endif -%}
 {%- endfor -%}
-{
-  "locations": [
-    {{ final_locations | join: "," }}
-  ]
-}
+{"locations": [ {{ final_locations | join: "," }} ]}
