@@ -1,26 +1,32 @@
-/* --- Typography & Banners --- */
-/* Importing a more "archival/punk" font for the header */
+/* --- Reagan-Bush Era Punk Poster Archive: Master Stylesheet --- */
+
+/* 1. Typography & Banners */
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Oswald:wght@500&display=swap');
 
 #home-title-box h1 { 
-    font-family: 'Special Elite', serif; /* Stencil/Typewriter feel */
+    font-family: 'Special Elite', serif; 
     font-weight: 500; 
     letter-spacing: 1px; 
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
-#home-title-box p { font-family: 'Open Sans', sans-serif; font-size: 1.1rem; }
+
+#home-title-box p { 
+    font-family: 'Open Sans', sans-serif; 
+    font-size: 1.1rem; 
+}
 
 /* Full-width Banner Image */
 .featured-image, main#maincontent > .container.my-4 > div:first-child {
-    width: 100vw !important; max-width: 100vw !important;
+    width: 100vw !important; 
+    max-width: 100vw !important;
     margin-left: calc(-50vw + 50%) !important;
-    background-size: cover !important; background-position: center !important;
+    background-size: cover !important; 
+    background-position: center !important;
 }
 
-/* --- Panel Background Colors --- */
+/* 2. Panel Background Colors (Subjects, Locations, Info Cards) */
 
-/* 1. TOP & BOTTOM PANELS: Light Purple (#ededfe) */
-/* We now use a specific class .purple-card in the HTML */
+/* TOP & BOTTOM PANELS: Light Purple */
 .purple-card {
     background-color: #ededfe !important; 
     color: rgb(5, 14, 47) !important;
@@ -30,7 +36,7 @@
     margin-bottom: 20px;
 }
 
-/* 2. INFORMATION CARDS: Light Green (#fafff0) */
+/* INFORMATION CARDS & SECTIONS: Light Green */
 .col-md-4 .card, 
 .col-md-6 .card,
 #subjects, #locations {
@@ -41,7 +47,24 @@
     margin-bottom: 20px;
 }
 
-/* --- THE SMALL RECTANGLES (Buttons/Tags) --- */
+/* 3. TARGETED SAMPLE ITEMS CAROUSEL (Snow White / No Frame) */
+
+/* This targets only the carousel area to avoid leaking into other cards */
+#image-carousel, 
+#image-carousel .carousel-inner, 
+#image-carousel .carousel-item {
+    background-color: rgb(255, 250, 250) !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove the border from the specific card containing the carousel */
+.card:has(#image-carousel) {
+    border: none !important;
+    background-color: rgb(255, 250, 250) !important;
+}
+
+/* 4. Small Rectangles (Buttons/Tags) */
 .card-body .btn, 
 .card-body a.btn,
 .btn-primary, 
@@ -57,7 +80,7 @@
     font-weight: 500;
 }
 
-/* --- Cleanup & Alignment --- */
+/* 5. Cleanup & Carousel Captions */
 .card-body {
     background-color: inherit !important;
 }
@@ -67,7 +90,6 @@
     font-weight: 600;
 }
 
-/* --- Carousel Styling Fixes --- */
 .carousel-caption {
     background-color: rgba(0, 0, 0, 0.8) !important;
     padding: 10px;
