@@ -1,4 +1,4 @@
-/* --- Reagan-Bush Era Punk Poster Archive: Master Stylesheet --- */
+/* --- Reagan-Bush Era Punk Poster Archive: Final Master Stylesheet --- */
 
 /* 1. TYPOGRAPHY & BANNERS */
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Oswald:wght@500&display=swap');
@@ -24,22 +24,17 @@
     background-position: center !important;
 }
 
-/* 2. PANEL COLORS (Subjects, Locations, Info Cards) */
+/* 2. PANEL COLORS (Purple & Green Sections) */
 
-/* TOP & BOTTOM PANELS: Light Purple */
 .purple-card {
     background-color: #ededfe !important; 
     color: rgb(5, 14, 47) !important;
     border: 1px solid #c8d2dc !important;
     border-radius: 10px !important;
-    box-shadow: none !important;
     margin-bottom: 20px;
 }
 
-/* INFORMATION CARDS: Light Green */
-.col-md-4 .card, 
-.col-md-6 .card,
-#subjects, #locations {
+.col-md-4 .card, .col-md-6 .card, #subjects, #locations {
     background-color: #fafff0 !important;
     border: 1px solid #c8d2dc !important;
     border-radius: 10px !important;
@@ -47,9 +42,9 @@
     margin-bottom: 20px;
 }
 
-/* 3. THE "SAMPLE ITEMS" CLEANUP (REMOVING MASKS & FRAMES) */
+/* 3. SAMPLE ITEMS: REMOVING ALL MASKS & THE BLACK BOX */
 
-/* Kill the dark background rectangle and forced height */
+/* This kills the dark "mask" rectangle seen in your screenshots */
 #imageCarousel, 
 #imageCarousel .carousel-inner, 
 #imageCarousel .carousel-item,
@@ -61,82 +56,71 @@
     height: auto !important;
 }
 
-/* Target the specific card container to make it Snow White */
+/* Ensure the container is Snow White */
 .card:has(#imageCarousel) {
     background-color: #ffffff !important;
     border: none !important;
-    box-shadow: none !important;
 }
 
-/* 4. IMAGE PRESENTATION (FULL BRIGHTNESS) */
+/* Image Presentation: No Fading */
 #imageCarousel .carousel-item img {
     opacity: 1 !important;
     filter: brightness(100%) !important;
     -webkit-filter: brightness(100%) !important;
-    max-height: 500px; /* Adjust this to make images larger or smaller */
+    max-height: 550px; 
     width: auto !important;
     margin: 0 auto !important;
     display: block !important;
 }
 
-/* 5. CAPTION BOX & BUTTON (CENTERED) */
+/* 4. CAPTION BOX & BUTTON (THE GOAL LOOK) */
+
 .carousel-caption {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
     position: absolute !important;
-    bottom: 20px !important;
+    bottom: 25px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    background-color: rgba(255, 255, 255, 0.95) !important;
+    
+    /* Clean white centered box */
+    background-color: rgba(255, 255, 255, 0.98) !important;
     border: 1px solid #c8d2dc !important;
-    border-radius: 8px !important;
-    padding: 15px !important;
+    border-radius: 5px !important;
+    padding: 12px 20px !important;
     width: auto !important;
     min-width: 280px !important;
 }
 
-/* Black Title Text */
-.carousel-item-title, 
-.carousel-caption h3 {
+/* Black Text */
+.carousel-item-title, .carousel-caption h3 {
     color: #000000 !important;
     font-weight: 700 !important;
     font-size: 1.1rem !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 8px !important;
     text-shadow: none !important;
 }
 
-/* Light Blue View Button */
+/* Light Blue Button */
 .carousel-caption .btn {
     background-color: #dcf0fa !important;
     color: rgb(5, 14, 47) !important;
     border: 1px solid #adcbe3 !important;
     font-weight: 600 !important;
-    padding: 5px 25px !important;
-    margin: 5px 0 0 0 !important;
-    display: inline-block !important;
+    padding: 4px 20px !important;
 }
 
-/* 6. UI ELEMENTS (Arrows & Tags) */
+/* 5. UI CONTROLS */
 
-/* Dark Navigation Arrows */
-.carousel-control-prev-icon, 
-.carousel-control-next-icon {
+.carousel-control-prev-icon, .carousel-control-next-icon {
     filter: invert(1) drop-shadow(0px 0px 2px rgba(0,0,0,0.5)) !important;
 }
 
-/* Tag Buttons in Other Sections */
 .btn-primary, .btn-outline-secondary, .btn-sm, .btn-secondary {
     background-color: #dcf0fa !important; 
     color: rgb(5, 14, 47) !important;
     border: 1px solid #adcbe3 !important;
-    border-radius: 5px !important;
     margin: 4px !important;
-    font-weight: 500;
-}
-
-.card-title {
-    color: rgb(5, 14, 47) !important;
-    font-weight: 600;
 }
