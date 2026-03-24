@@ -1,18 +1,15 @@
 ---
-# find all unique locations used in the metadata
-#
-# Requires CB's array_count_uniq.rb plugin!
+# find all unique locations used in the metadata 
+layout: null
 ---
-{%- if site.data.theme.locations-fields -%}
-{%- assign items = site.data[site.metadata] | where_exp: 'item','item.objectid' -%}
-{%- assign locations-fields = site.data.theme.locations-fields | split: ";" -%}
-{%- assign places = "" -%}
-{%- for c in locations-fields -%}
-{% assign new = items | map: c | join: ";" %}
-{% assign places = places | append: ";" | append: new %}
+{%- assign items = site.data.posters -%}
+{%- assign locations_string = "" -%}
+{%- for item in items -%}
+  {%- if item.location and item.location != "" -%}
+    {%- assign locations_string = locations_string | append: ";" | append: item.location -%}
+  {%- endif -%}
 {%- endfor -%}
-{%- assign uniqPlaces = places | downcase | split: ";" | array_count_uniq -%}
-location,count,link
-{% for s in uniqPlaces %}"{{ s[0] }}",{{ s[1] }},"{{ s[0] | url_param_escape | prepend: '/browse.html#' | absolute_url }}"
-{% endfor %}
-{%- endif -%}
+{%- assign uniqLocations = locations_string | split: ";" | compact | uniq | sort -%}
+location,link
+{% for l in uniqLocations %}{% if l != "" %}"{{ l | strip }}","{{ l | strip | url_param_escape | prepend: '/browse.html#' | absolute_url }}"
+{% endif %}{% endfor %}
