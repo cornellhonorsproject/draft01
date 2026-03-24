@@ -1,5 +1,5 @@
 {%- comment -%} 
-    Carousel.html - Cleaned for White Background & Variable Height
+    Carousel.html - Finalized Floating Caption Version
 {%- endcomment -%}
 
 {%- assign carousel-max = include.max | default: 9 -%}
@@ -15,13 +15,14 @@
 {%- endif -%}
 
 <style>
-    /* Allow the carousel to expand to fit the image naturally */
-    #imageCarousel .carousel-item { height: auto; min-height: 400px; }
+    /* Clean background and auto-height for the container */
+    #imageCarousel .carousel-item { height: auto !important; }
+    .carousel-inner { background: transparent !important; border: none !important; }
 </style>
 
-<div class="card mb-3 border-0">
+<div class="card mb-3 border-0 bg-transparent">
     <div class="card-body">
-        {% if include.title %}<{{ include.heading_level | default: 'h2' | strip }} class="card-title h5">{{ include.title }}</{{ include.heading_level | default: 'h2' | strip }}>{% endif %}
+        {% if include.title %}<{{ include.heading_level | default: 'h2' | strip }} class="card-title h5 text-dark">{{ include.title }}</{{ include.heading_level | default: 'h2' | strip }}>{% endif %}
         
         <div id="imageCarousel" class="carousel slide bg-transparent mb-3" data-bs-ride="carousel">
             <div id="carouselIndicators" class="carousel-indicators"></div>
@@ -54,11 +55,11 @@
         
         indicator = `<button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="${i}" ${ i == 0 ? 'class="active" aria-current="true" ' : '' } aria-label="Slide ${i}"></button>`;
         
-        /* CLEANED SLIDE GENERATOR: Removed h-100 and text-white */
+        /* THE FLOATING STRUCTURE: No background classes on title */
         slide = `<div class="carousel-item py-2${ i == 0 ? ' active' : '' }">
-            <img class="d-block img-fluid mx-auto" style="max-height: 450px;" alt="${carouselItems[i][4]}" src="${itemImg}">
+            <img class="d-block img-fluid mx-auto" style="max-height: 480px;" alt="${carouselItems[i][4]}" src="${itemImg}">
             <div class="carousel-caption">
-                <h3 class="carousel-item-title h6">${carouselItems[i][0]}</h3>
+                <h3 class="carousel-item-title">${carouselItems[i][0]}</h3>
                 <a href="${itemLink}" class="btn btn-sm btn-{{ btn-color }}">{{ btn-text }}</a>
             </div></div>`;
         
