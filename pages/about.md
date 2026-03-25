@@ -1,39 +1,32 @@
 ---
-title: About
+title: About the Curator
 layout: about
 permalink: /about.html
 # include CollectionBuilder info at bottom
 credits: true
-# featured-image value can be one objectid for a photo object in this collection, a relative path to an image in this project, or a full url to any image. If left blank, no featured image will appear at top of About page.
-about-featured-image: demo_031
-# set background-position for featured image, "center", "top", "bottom"
-position: bottom
-# major heading to display over featured image
+# Using the Psychomail Bag for the banner
+about-featured-image: cometbus_4_8107_box_4_14
+position: center
 heading: About the Collection
-# paragraph text below heading in featured image
-sub-heading: 
-# additional padding added to the feature to increase size. Give value in em or px, e.g. "5em".
-padding: 6em
-# Edit the markdown on in this file to describe your collection
-# Look in _includes/feature for options to easily add features to the page
+sub-heading: "Preserving the Visual Politics of the Reagan-Bush Era"
+padding: 7em
 ---
 
-## About CollectionBuilder CSV
+## The Archive and the Honors Program
 
-This demo collection features items from the University of Idaho Library's [Digital Collections](https://www.lib.uidaho.edu/digital/), and is build using [CollectionBuilder-CSV](https://github.com/CollectionBuilder/collectionbuilder-csv).
+The **Reagan-Bush Era Punk Poster Archive** is a digital humanities project developed and curated by **Catherine Frank** ('26) as part of the **Cornell University Honors Program**. 
 
-CollectionBuilder-CSV is a "Stand Alone" template for creating digital collection and exhibit websites using Jekyll, given:
+The collection serves as a scholarly intervention into the preservation of ephemeral political art. By digitizing over 460 unique posters, flyers, and zine fragments—many of which were originally produced on low-grade paper for immediate consumption—this project ensures that the "DIY" aesthetics of resistance from 1977 to 1992 are available for future academic study.
 
-- a CSV of collection metadata
-- a folder of images, PDFs, audio, or video files
+{% include feature/image.html objectid="cometbus_4_8107_box_4_14" width="45" float="right" caption="Original mockup from the Cometbus Collection, showcasing the raw, hand-collaged nature of the archive." %}
 
-Driven by your collection metadata, the template generates engaging visualizations to browse and explore your objects.
-The resulting static site can be hosted on any basic web server.
+### Research Methodology
+This project utilizes the **CollectionBuilder** framework to transform raw archival metadata into an interactive research tool. The focus is not merely on the preservation of the image, but on the metadata—mapping locations, subjects, and creators to reveal the geographic and ideological networks of the punk underground during the Reagan and Bush administrations.
 
-[CollectionBuilder](https://github.com/CollectionBuilder/) is an set of open source tools for creating digital collection and exhibit websites that are driven by metadata and powered by modern static web technology.
-See [CB Docs](https://collectionbuilder.github.io/cb-docs/) for detailed information.
+### About Catherine Frank
+**Catherine Frank** is a senior at **Cornell University** graduating with a double major. This archive represents the culmination of her work within the honors program, bridging her interests in archival science, history, and digital preservation. 
 
-{% include feature/image.html objectid="demo_001" width="75" %} 
+Following her graduation in 2026, Catherine aims to continue exploring how digital tools can be used to democratize access to marginalized historical records.
 
-<!-- IMPORTANT!!! DELETE this comment and the include below when you are finished editing this page for your collection. The include below introduces about page features. They will show up on your collection's about page until you delete it.  -->
-{% include cb/about_the_about.md %} 
+---
+*For inquiries regarding the metadata or archival sources used in this project, please visit the [Data page]({{ "/data.html" | relative_url }}).*
