@@ -14,10 +14,9 @@
 #home-title-box h1 { 
     font-family: 'Special Elite', serif; 
     font-weight: 500; 
-    font-size: 4rem; /* <--- ADD THIS LINE (Standard is usually 2rem) */
+    font-size: 5rem !important; 
     letter-spacing: 1px; 
     color: #ffffff !important;
-    /* Added stronger shadow so white text is readable against busy posters */
     text-shadow: 2px 2px 8px rgba(0,0,0,0.9), 0px 0px 12px rgba(0,0,0,0.5) !important;
 }
 
