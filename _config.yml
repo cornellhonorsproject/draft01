@@ -5,13 +5,13 @@
 
 ##########
 url: "https://cornellhonorsproject.github.io"
-baseurl: "/punk_war_on_the_boulevard"
-source-code: "https://github.com/cornellhonorsproject/punk_war_on_the_boulevard"
+baseurl: "/march28"
+source-code: "https://github.com/cornellhonorsproject/march28"
 
 ##########
 # SITE SETTINGS
 title: "War on the Boulevard"
-tagline: "Visual Politics and DIY Aesthetics (1980-1992) "
+tagline: "Visual Politics and DIY Aesthetics (1980-1992)"
 description: "A digital collection of political punk posters and flyers from the Reagan and Bush administrations."
 keywords: "punk; reagan; bush; political posters; archives; DIY"
 author: "Catherine Frank"
@@ -34,6 +34,7 @@ organization-logo-nav: false
 
 ##########
 # BUILD SETTINGS 
+# These paths help the site find your CSS and JS folders
 lib-assets: "/assets/lib"
 exclude: [docs/, Rakefile, rakelib/, README.md, LICENSE, CITATION.cff, CODE_OF_CONDUCT.md, CONTRIBUTING.md, SECURITY.md]
 sass:
