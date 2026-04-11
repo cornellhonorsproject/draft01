@@ -39,7 +39,22 @@ layout: page
   <div class="col-md-4">  
     {% include index/time.html %}
     {% include index/content.html %}
-  </div>
+
+    <div class="card mb-3 shadow-sm" style="background-color: #f8f9fa;">
+        <div class="card-body">
+            <h2 class="card-title h5 text-dark">User Guide</h2>
+            <div class="card-text small">
+                Explore this collection by:
+                <ul class="mt-2">
+                    <li><strong>Browse:</strong> See all items in a gallery.</li>
+                    <li><strong>Timeline:</strong> View chronological history.</li>
+                    <li><strong>Map:</strong> Locate where posters originated.</li>
+                </ul>
+            </div>
+            <a href="{{ '/about.html' | relative_url }}" class="btn btn-sm btn-outline-dark mt-2">Learn More</a>
+        </div>
+    </div>
+    </div>
 
 </div>
 
