@@ -1,5 +1,5 @@
 ---
-# Updated home page with transparent banner, floating text, and expanded User Guide
+# Professional layout with expanded User Guide and technical context
 layout: page
 ---
 
@@ -9,11 +9,7 @@ layout: page
             background-position: center;
             position: relative;">
 
-  <div style="position: absolute; 
-              top: 0; 
-              left: 0; 
-              width: 100%; 
-              height: 100%;"></div>
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.1);"></div>
 
   <div style="position: absolute; 
               bottom: 25px; 
@@ -40,22 +36,32 @@ layout: page
     {% include index/time.html %}
     {% include index/content.html %}
 
-    <div class="card mb-3 shadow-sm" style="background-color: #f8f9fa;">
+    <div class="card mb-3 shadow-sm" style="background-color: #f8f9fa; border-top: 5px solid #343a40;">
         <div class="card-body">
-            <h2 class="card-title h5 text-dark">User Guide</h2>
+            <h2 class="h4 mb-3 text-uppercase font-weight-bold" style="letter-spacing: 1px;">User Guide</h2>
+            
             <div class="card-text small text-dark">
-                Explore this digital collection of 432 punk artifacts using these main entry points:
-                <ul class="mt-2 mb-3">
-                    <li><strong>Browse:</strong> View the entire collection of posters and flyers in a gallery format.</li>
-                    <li><strong>Timeline:</strong> Follow the visual history of political punk from 1977 to 1992.</li>
-                    <li><strong>Map:</strong> Explore where this DIY aesthetic originated.</li>
+                <h3 class="h6 font-weight-bold border-bottom pb-1">Site Mechanics</h3>
+                <p>Navigate this archive of 432 artifacts using these tools:</p>
+                <ul class="ps-3 mt-1">
+                    <li><strong>Browse Gallery:</strong> Use the sidebar <strong>Facets</strong> to filter items by year, creator, or document type.</li>
+                    <li><strong>Timeline:</strong> Follow the visual evolution of dissent across the Reagan and Bush administrations.</li>
+                    <li><strong>Map View:</strong> Click city markers to explore regional DIY networks and local scenes.</li>
+                    <li><strong>Metadata Search:</strong> Use the search bar for specific keywords (e.g., "Nuclear," "Police," "Zine").</li>
                 </ul>
-                
+
+                <h3 class="h6 font-weight-bold border-bottom pb-1 mt-4">Archival Sources</h3>
                 <p>
-                    <strong>How to Search:</strong> Use the main search bar to find specific bands, events, or artists. You can also filter results by <strong>Location</strong> (e.g., Berkeley) or <strong>Subject</strong> (e.g., Reagan administration) on the "Subjects" page.
+                    These primary sources are held in the <strong>Cometbus Punk and Underground Press Collection</strong> at Cornell University.
                 </p>
+                <ul class="ps-3">
+                    <li><strong>Source:</strong> Rare and Manuscript Collections.</li>
+                    <li><strong>Location:</strong> Box 4 (Box 8107).</li>
+                    <li><strong>Context:</strong> Each digital record contains a "Location" field cross-referencing its physical folder.</li>
+                </ul>
             </div>
-            <a href="{{ '/about.html' | relative_url }}" class="btn btn-sm btn-outline-dark mt-2">Learn More</a>
+            
+            <a href="{{ '/about.html' | relative_url }}" class="btn btn-sm btn-dark w-100 mt-3 font-weight-bold">Learn More & Research Context</a>
         </div>
     </div>
     </div>
