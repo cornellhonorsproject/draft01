@@ -18,8 +18,6 @@
     /* Clean background and auto-height for the container */
     #imageCarousel .carousel-item { height: auto !important; }
     .carousel-inner { background: transparent !important; border: none !important; }
-    /* Darker indicators for visibility on white background */
-    .carousel-indicators [data-bs-target] { background-color: #000; }
 </style>
 
 <div class="card mb-3 border-0 bg-transparent">
@@ -27,7 +25,6 @@
         {% if include.title %}<{{ include.heading_level | default: 'h2' | strip }} class="card-title h5 text-dark">{{ include.title }}</{{ include.heading_level | default: 'h2' | strip }}>{% endif %}
         
         <div id="imageCarousel" class="carousel slide bg-transparent mb-3" data-bs-ride="carousel">
-            <div id="carouselIndicators" class="carousel-indicators"></div>
             <div id="carouselInner" class="carousel-inner"></div>
 
             <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
@@ -50,28 +47,22 @@
     carouselItems.sort(function() { return 0.5 - Math.random() });
 
     var carousel = document.getElementById("carouselInner");
-    var carouselIndicators = document.getElementById("carouselIndicators");
     var slides = "";
-    var indicators = "";
 
     for (let i=0; i < {{ carousel-items | size | at_most: carousel-max }}; i++) {
         let itemImg = carouselItems[i][2];
         let itemLink = (carouselItems[i][3]) ? '{{ "/items/" | relative_url }}' + carouselItems[i][3] + '.html#' + carouselItems[i][1] : '{{ "/items/" | relative_url }}' + carouselItems[i][1] + '.html';
         
-        indicator = `<button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="${i}" ${ i == 0 ? 'class="active" aria-current="true" ' : '' } aria-label="Slide ${i}"></button>`;
-        
-        /* Updated Layout: Description added under the title with padding */
+        /* Updated Layout: No indicators logic, description below title */
         slide = `<div class="carousel-item py-2${ i == 0 ? ' active' : '' }">
             <img class="d-block img-fluid mx-auto mb-3" style="max-height: 480px;" alt="${carouselItems[i][4]}" src="${itemImg}">
             <div class="text-center px-5">
                 <h3 class="h5 text-dark">${carouselItems[i][0]}</h3>
-                <p class="text-dark small mb-2">${carouselItems[i][5] || ""}</p>
+                <p class="text-dark small mb-3">${carouselItems[i][5] || ""}</p>
                 <a href="${itemLink}" class="btn btn-sm btn-{{ btn-color }}">{{ btn-text }}</a>
             </div></div>`;
         
         slides += slide;
-        indicators += indicator;
     }
-    carouselIndicators.innerHTML = indicators;
     carousel.innerHTML = slides;
 </script>
