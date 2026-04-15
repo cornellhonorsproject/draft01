@@ -1,11 +1,36 @@
-{% comment %} 
-    Collection Description card.
-{%- endcomment -%}
-<div class="card mb-3 purple-card">
-    <div class="card-body">
-        <{{ include.heading_level | default: 'h2' | strip }} class="card-title h5">Description</{{ include.heading_level | default: 'h2' | strip }}>
-        <p class="card-text">{{ site.description }}</p>
-        {%- assign about = site.data.config-nav | where: "stub","/about.html" | size -%}{% if about > 0 %}
-        <a class="btn btn-sm btn-{{ include.btn-color | default: 'primary' }}" href="{{ '/about.html' | relative_url }}" >Learn More &raquo;</a>{% endif %}
+<div class="mb-4">
+    <h2><u>User Guide</u></h2>
+
+    <div class="mt-3">
+        <h3>Intro</h3>
+        <p>This site is a curated digital archive of punk flyers, zines, and underground publications from the 1980s and early 1990s during Reagan and Bush’s presidential administrations. The collection is organized through structured metadata that allows these materials to be explored not only as individual artifacts, but as part of a broader system of cultural and political communication across scenes, formats, years, and locations.</p>
+    </div>
+
+    <div class="mt-4">
+        <h2 class="mb-2"><u>How to Navigate the Site</u></h2>
+        
+        <p class="mb-1"><b>Browse</b></p>
+        <p class="small text-muted mb-0">Explore the full collection of items in this tab and search for specific items from Cornell’s archival collections of punk ephemera.</p>
+        <p class="small text-muted mt-0">Identify recurring themes across flyers, zines, and underground publications through the search bar.</p>
+
+        <p class="mb-1 mt-3"><b>Subjects / Locations</b></p>
+        <p class="small text-muted mb-0">Navigate materials through subject and geographic location tags.</p>
+        <p class="small text-muted mt-0 mb-0">Follow connections between themes like political activism, DIY publishing, and live music scenes.</p>
+        <p class="small text-muted mt-0">Trace how similar subjects appear across different cities and communities, or similar cities feature diverse subjects.</p>
+
+        <p class="mb-1 mt-3"><b>Map</b></p>
+        <p class="small text-muted mb-0">Explore items based on where events originally took place via coordinates.</p>
+        <p class="small text-muted mt-0 mb-0">See how punk scenes were distributed across regions and collection creators collected from across the country.</p>
+        <p class="small text-muted mt-0">Understand how ideas and aesthetics circulated between locations.</p>
+
+        <p class="mb-1 mt-3"><b>Timeline</b></p>
+        <p class="small text-muted mb-0">View materials chronologically across the late twentieth century.</p>
+        <p class="small text-muted mt-0 mb-0">Track shifts in design, tone, and political focus over the time dimension.</p>
+        <p class="small text-muted mt-0">Situate artifacts within broader historical contexts.</p>
+
+        <p class="mb-1 mt-3"><b>About</b></p>
+        <p class="small text-muted mb-0">Learn about the scope of the collection and how it was created.</p>
+        <p class="small text-muted mt-0 mb-0">Understand how metadata and digital tools structure the archive.</p>
+        <p class="small text-muted mt-0">Read the project’s interpretation of punk ephemera as a network of cultural and political expression.</p>
     </div>
 </div>
