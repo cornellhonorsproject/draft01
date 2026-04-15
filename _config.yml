@@ -5,12 +5,12 @@
 
 ##########
 url: "https://cornellhonorsproject.github.io"
-baseurl: "/draft01"
+baseurl: "/punk_war_on_the_boulevard"
 source-code: "https://github.com/cornellhonorsproject/draft01"
 
 ##########
 # SITE SETTINGS
-title: "War on the Boulevard"
+title: "Punk War on the Boulevard"
 tagline: "Visual Politics and DIY Aesthetics (1980-1992)"
 description: "A digital collection of political punk posters and flyers from the Reagan and Bush administrations."
 keywords: "punk; reagan; bush; political posters; archives; DIY"
