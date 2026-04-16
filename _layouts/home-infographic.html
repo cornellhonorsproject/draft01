@@ -1,52 +1,62 @@
 ---
-layout: page
+layout: default
 ---
+{%- assign items = site.data[site.metadata] -%}
 
-<div id="home-banner" style="background-image: url('{{ "/assets/img/banner2.jpg" | relative_url }}'); 
+<div id="home-banner" style="background-image: url('{{ "/assets/img/banner1.jpg" | relative_url }}'); 
             height: 400px; 
             background-size: cover; 
             background-position: center;
-            position: relative;">
+            position: relative;
+            margin-bottom: 2rem;">
 
-  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.1);"></div>
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255,255,255,0.05);"></div>
 
-  <div style="position: absolute; 
-              bottom: 25px; 
-              left: 50%; 
-              transform: translateX(-50%);
-              color: white;
-              text-align: center;
-              z-index: 10;">
-      <h4 style="margin:0; text-shadow: 2px 2px 8px rgba(0,0,0,1);">
-          432 images of punk political statements
-      </h4>
-  </div>
-
+    <div style="position: absolute; 
+                bottom: 25px; 
+                left: 50%; 
+                transform: translateX(-50%);
+                color: #000000 !important; 
+                text-align: center;
+                z-index: 10;
+                width: 100%;">
+        <h4 style="margin:0; font-weight: bold; text-shadow: none !important; color: #000000 !important;">
+            432 images of punk political statements
+        </h4>
+    </div>
 </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title h3 border-bottom pb-2">User Guide</h2>
+                    {{ content }}
+                </div>
+            </div>
 
-<div class="row mt-4">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h2 class="h5 card-title border-bottom pb-2">Sample Items</h2>
+                    {% include index/featured-terms.html field="subject" title="Top Subjects" %}
+                </div>
+            </div>
+        </div>
 
-  <div class="col-md-8">
-    {% include index/description.html %}
-    {% include index/carousel.html title="Sample Items" %}
-  </div>
+        <div class="col-md-4">
+            <div class="card mb-3 shadow-sm" style="background-color: #f8fdf8 !important; border: 1px solid #e1eee1 !important;">
+                <div class="card-body">
+                    <h2 class="h5 card-title border-bottom pb-2">Time Span</h2>
+                    <p class="card-text h4">1977 to 1992</p>
+                    <a href="{{ '/timeline.html' | relative_url }}" class="btn btn-sm btn-outline-success">View Timeline</a>
+                </div>
+            </div>
 
-  <div class="col-md-4">  
-    {% include index/time.html %}
-    {% include index/content.html %}
+            {% include index/objects.html %}
+            
+            {% include index/featured-terms.html field="location" title="Locations" %}
 
-    <div class="mb-3">
-        {% include index/featured-terms.html field="subject" title="Top Subjects" btn-color="primary" %}
+            {% include index/data-download.html %}
+        </div>
     </div>
-
-    <div class="mb-3">
-        {% include index/featured-terms.html field="location" title="Locations" btn-color="outline-secondary" %}
-    </div>
-
-    <div class="mb-3">
-        {% include index/data-download.html %}
-    </div>
-
-  </div>
-
 </div>
