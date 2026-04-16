@@ -4,6 +4,7 @@
 ##########
 
 ##########
+# REPOSITORY SETTINGS
 url: "https://cornellhonorsproject.github.io"
 baseurl: "/draft01"
 source-code: "https://github.com/cornellhonorsproject/draft01"
@@ -29,13 +30,15 @@ organization-logo-banner: false
 organization-logo-nav: false
 
 ##########
-# ROBOTS EXCLUDE
-# noindex: true 
-
-##########
 # BUILD SETTINGS 
-# These paths help the site find your CSS and JS folders
+# Helps the site find CSS/JS when hosted in a sub-folder like /draft01/
+relative_url: true
 lib-assets: "/assets/lib"
 exclude: [docs/, Rakefile, rakelib/, README.md, LICENSE, CITATION.cff, CODE_OF_CONDUCT.md, CONTRIBUTING.md, SECURITY.md]
+
 sass:
   style: compressed
+
+##########
+# ROBOTS EXCLUDE
+# noindex: true
