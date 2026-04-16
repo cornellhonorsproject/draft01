@@ -4,7 +4,7 @@ title: Home
 permalink: /
 ---
 
-### Intro
+**Intro**
 This site is a curated digital archive of punk flyers, zines, and underground publications from the 1980s and early 1990s during Reagan and Bush's presidential administrations. The collection is organized through structured metadata that allows these materials to be explored not only as individual artifacts, but as part of a broader system of cultural and political communication across scenes, formats, years, and locations.
 
 ### How to Navigate the Site
