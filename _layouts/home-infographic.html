@@ -8,48 +8,54 @@ layout: default
             background-position: center;
             position: relative;
             margin-bottom: 2rem;">
-
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255,255,255,0.1);"></div>
-
-    <div style="position: absolute; 
-                bottom: 25px; 
-                left: 50%; 
-                transform: translateX(-50%);
-                text-align: center;
-                z-index: 10;
-                width: 100%;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255,255,255,0.05);"></div>
+    <div style="position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%); text-align: center; z-index: 10; width: 100%;">
         <h4 style="margin:0; font-weight: bold; text-shadow: none !important; color: #000000 !important;">
             432 images of punk political statements
         </h4>
     </div>
 </div>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-8">
             <div class="card mb-4 shadow-sm">
                 <div class="card-body">
                     <h2 class="card-title h3 border-bottom pb-2">User Guide</h2>
-                    {{ content }}
+                    <div class="p-3">
+                        {{ content }}
+                    </div>
                 </div>
             </div>
 
             <div class="card shadow-sm mb-4">
                 <div class="card-body">
-                    {% include index/featured-terms.html field="subject" title="Top Subjects" %}
+                    <h2 class="h5 card-title border-bottom pb-2">Sample Items</h2>
+                    {% include index/carousel.html %}
                 </div>
             </div>
         </div>
 
         <div class="col-md-4">
             <div class="card mb-3 shadow-sm" style="background-color: #f8fdf8 !important; border: 1px solid #e1eee1 !important;">
-                <div class="card-body">
+                <div class="card-body text-center">
                     <h2 class="h5 card-title border-bottom pb-2">Time Span</h2>
                     <p class="card-text h4">1977 to 1992</p>
                     <a href="{{ '/timeline.html' | relative_url }}" class="btn btn-sm btn-outline-success">View Timeline</a>
                 </div>
             </div>
+
+            <div class="card mb-3 shadow-sm">
+                <div class="card-body">
+                    {% include index/featured-terms.html field="subject" title="Top Subjects" %}
+                </div>
+            </div>
             
-            {% include index/featured-terms.html field="location" title="Locations" %}
+            <div class="card mb-3 shadow-sm">
+                <div class="card-body">
+                    {% include index/featured-terms.html field="location" title="Locations" %}
+                </div>
+            </div>
 
             {% include index/data-download.html %}
         </div>
