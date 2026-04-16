@@ -1,5 +1,4 @@
 ---
-# Professional layout with expanded User Guide and technical context
 layout: page
 ---
 
@@ -36,17 +35,16 @@ layout: page
     {% include index/time.html %}
     {% include index/content.html %}
 
+    <div class="mb-3">
+        {% include index/featured-terms.html field="subject" title="Top Subjects" btn-color="primary" %}
     </div>
 
-</div>
+    <div class="mb-3">
+        {% include index/featured-terms.html field="location" title="Locations" btn-color="outline-secondary" %}
+    </div>
 
-<div class="row mt-4">
-  <div class="col-md-6">
-    {% include index/featured-terms.html field="subject" title="Top Subjects" btn-color="primary" %}
-  </div>
-  <div class="col-md-6">
-    {% include index/featured-terms.html field="location" title="Locations" btn-color="outline-secondary" %}
-  </div>
+    </div>
+
 </div>
 
 <div class="row mt-4">
