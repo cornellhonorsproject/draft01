@@ -4,10 +4,14 @@ title: Home
 permalink: /
 ---
 
-This digital collection archives the visual culture of political resistance during the Reagan and Bush administrations. Explore over 400 posters and flyers that defined the DIY punk aesthetic and its engagement with social and political movements of the era. 
+### Intro
+This site is a curated digital archive of punk flyers, zines, and underground publications from the 1980s and early 1990s during Reagan and Bush's presidential administrations. The collection is organized through structured metadata that allows these materials to be explored not only as individual artifacts, but as part of a broader system of cultural and political communication across scenes, formats, years, and locations.
 
-#### How to Navigate the Collection
-* **Browse:** Use the top menu to view the full gallery of 432 images.
-* **Filter:** Use the **Subjects** and **Locations** buttons in the sidebar to narrow your search.
-* **Timeline:** View the chronological evolution of these punk ephemera via the **Time Span** button.
-* **Data:** Access high-resolution images and full metadata in the **Data** section.
+### How to Navigate the Site
+**Browse:** Explore the full collection of items in this tab and search for specific items from Cornell's archival collections of punk ephemera. Identify recurring themes across flyers, zines, and underground publications through the search bar.
+
+**Subjects / Locations:** Navigate materials through subject and geographic location tags. Follow connections between themes like political activism, DIY publishing, and live music scenes.
+
+**Map:** Explore items based on where events originally took place via coordinates. See how punk scenes were distributed across regions and collection creators collected from across the country.
+
+**Timeline:** View materials chronologically across the late twentieth century. Track shifts in design, tone, and political focus over the time dimension.
