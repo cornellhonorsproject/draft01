@@ -1,36 +1,33 @@
-<div class="card mb-3 shadow-sm" style="background-color: #f0f0fa !important; border: 1px solid #d1d1e9 !important;">
+<div class="card mb-3 shadow-sm" style="border-radius: 0;">
     <div class="card-body">
-        <h2 class="h5 card-title border-bottom pb-2">Collection as Data</h2>
-        
-        <div class="row g-2 text-center mt-2">
-            <div class="col-4">
-                <a href="{{ '/assets/data/metadata.csv' | relative_url }}" class="btn btn-sm w-100 d-flex align-items-center justify-content-center" style="font-size: 0.7rem; height: 55px; line-height: 1.1; background-color: #dcf0fa !important; color: black !important; border: 1px solid #c5e1f0 !important;">Metadata CSV</a>
+        <h2 class="h6 card-title border-bottom pb-2" style="font-weight: bold;">Collection as Data</h2>
+        <div class="row g-2 justify-content-between">
+            <div class="col-auto">
+                <a href="{{ '/assets/data/metadata.csv' | relative_url }}" class="btn btn-sm btn-outline-info" style="width: 140px; font-size: 0.75rem; padding: 2px 5px;">Metadata CSV</a>
             </div>
-            <div class="col-4">
-                <a href="{{ '/assets/data/metadata.json' | relative_url }}" class="btn btn-sm w-100 d-flex align-items-center justify-content-center" style="font-size: 0.7rem; height: 55px; line-height: 1.1; background-color: #dcf0fa !important; color: black !important; border: 1px solid #c5e1f0 !important;">Metadata JSON</a>
+            <div class="col-auto">
+                <a href="{{ '/assets/data/metadata.json' | relative_url }}" class="btn btn-sm btn-outline-info" style="width: 140px; font-size: 0.75rem; padding: 2px 5px;">Metadata JSON</a>
             </div>
-            <div class="col-4">
-                <a href="{{ '/assets/data/subjects.csv' | relative_url }}" class="btn btn-sm w-100 d-flex align-items-center justify-content-center" style="font-size: 0.7rem; height: 55px; line-height: 1.1; background-color: #dcf0fa !important; color: black !important; border: 1px solid #c5e1f0 !important;">Subjects CSV</a>
+            <div class="col-auto">
+                <a href="{{ '/assets/data/subjects.csv' | relative_url }}" class="btn btn-sm btn-outline-info" style="width: 140px; font-size: 0.75rem; padding: 2px 5px;">Subjects CSV</a>
             </div>
-
-            <div class="col-4">
-                <a href="{{ '/assets/data/subjects.json' | relative_url }}" class="btn btn-sm w-100 d-flex align-items-center justify-content-center" style="font-size: 0.7rem; height: 55px; line-height: 1.1; background-color: #dcf0fa !important; color: black !important; border: 1px solid #c5e1f0 !important;">Subjects JSON</a>
+            <div class="col-auto">
+                <a href="{{ '/assets/data/subjects.json' | relative_url }}" class="btn btn-sm btn-outline-info" style="width: 140px; font-size: 0.75rem; padding: 2px 5px;">Subjects JSON</a>
             </div>
-            <div class="col-4">
-                <a href="{{ '/assets/data/geodata.json' | relative_url }}" class="btn btn-sm w-100 d-flex align-items-center justify-content-center" style="font-size: 0.7rem; height: 55px; line-height: 1.1; background-color: #dcf0fa !important; color: black !important; border: 1px solid #c5e1f0 !important;">GeoData JSON</a>
+            <div class="col-auto">
+                <a href="{{ '/assets/data/geodata.json' | relative_url }}" class="btn btn-sm btn-outline-info" style="width: 140px; font-size: 0.75rem; padding: 2px 5px;">GeoData JSON</a>
             </div>
-            <div class="col-4">
-                <a href="{{ '/assets/data/locations.csv' | relative_url }}" class="btn btn-sm w-100 d-flex align-items-center justify-content-center" style="font-size: 0.7rem; height: 55px; line-height: 1.1; background-color: #dcf0fa !important; color: black !important; border: 1px solid #c5e1f0 !important;">Locations CSV</a>
+            <div class="col-auto">
+                <a href="{{ '/assets/data/locations.csv' | relative_url }}" class="btn btn-sm btn-outline-info" style="width: 140px; font-size: 0.75rem; padding: 2px 5px;">Locations CSV</a>
             </div>
-
-            <div class="col-4">
-                <a href="{{ '/assets/data/locations.json' | relative_url }}" class="btn btn-sm w-100 d-flex align-items-center justify-content-center" style="font-size: 0.7rem; height: 55px; line-height: 1.1; background-color: #dcf0fa !important; color: black !important; border: 1px solid #c5e1f0 !important;">Locations JSON</a>
+            <div class="col-auto">
+                <a href="{{ '/assets/data/locations.json' | relative_url }}" class="btn btn-sm btn-outline-info" style="width: 140px; font-size: 0.75rem; padding: 2px 5px;">Locations JSON</a>
             </div>
-            <div class="col-4">
-                <a href="{{ '/assets/data/timeline.json' | relative_url }}" class="btn btn-sm w-100 d-flex align-items-center justify-content-center" style="font-size: 0.7rem; height: 55px; line-height: 1.1; background-color: #dcf0fa !important; color: black !important; border: 1px solid #c5e1f0 !important;">Timeline JSON</a>
+            <div class="col-auto">
+                <a href="{{ '/assets/data/timeline.json' | relative_url }}" class="btn btn-sm btn-outline-info" style="width: 140px; font-size: 0.75rem; padding: 2px 5px;">Timeline JSON</a>
             </div>
-            <div class="col-4">
-                <a href="{{ site.source-code }}" class="btn btn-sm w-100 d-flex align-items-center justify-content-center" style="font-size: 0.7rem; height: 55px; line-height: 1.1; background-color: #dcf0fa !important; color: black !important; border: 1px solid #c5e1f0 !important;">Source Code</a>
+            <div class="col-auto">
+                <a href="https://github.com/cornellhonorsproject/draft01" class="btn btn-sm btn-outline-info" style="width: 140px; font-size: 0.75rem; padding: 2px 5px;">Source Code</a>
             </div>
         </div>
     </div>
