@@ -3,34 +3,40 @@ layout: default
 ---
 
 <div id="home-banner" style="background-image: url('{{ site.baseurl }}/assets/img/banner1.jpg'); 
-            height: 220px; 
+            height: 300px; 
             background-size: cover; 
             background-position: center;
-            position: relative;
-            margin-bottom: 0.5rem;">
+            position: relative;">
     
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255,255,255,0.05);"></div>
 
     <div style="position: absolute; 
-                bottom: 15px; 
+                bottom: 80px; 
                 left: 50%; 
                 transform: translateX(-50%);
                 text-align: center;
                 z-index: 10;
                 width: 100%;">
-        <h4 style="margin:0; font-weight: bold; text-shadow: none !important; color: #000000 !important;">
+        <h2 style="margin:0; 
+                   font-family: 'Arial Narrow', sans-serif-condensed, sans-serif; 
+                   font-stretch: ultra-condensed; 
+                   letter-spacing: 1px; 
+                   font-weight: 300; 
+                   text-transform: uppercase;
+                   color: #000000 !important; 
+                   text-shadow: none !important;">
             432 images of punk political statements
-        </h4>
+        </h2>
     </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid" style="margin-top: -60px; position: relative; z-index: 20;">
     <div class="row">
         <div class="col-md-8">
-            <div class="card mb-4 shadow-sm">
+            <div class="card mb-4 shadow-sm" style="border-top: 5px solid #000;">
                 <div class="card-body">
                     <h2 class="card-title h3 border-bottom pb-2">User Guide</h2>
-                    <div class="p-3" style="color: #333;">
+                    <div class="p-3" style="line-height: 1.6;">
                         {{ content }}
                     </div>
                 </div>
