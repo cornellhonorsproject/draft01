@@ -3,15 +3,16 @@ layout: default
 ---
 
 <div id="home-banner" style="background-image: url('{{ site.baseurl }}/assets/img/banner1.jpg'); 
-            height: 300px; 
+            height: 250px; 
             background-size: cover; 
             background-position: center;
-            position: relative;">
+            position: relative;
+            border-bottom: 2px solid #000;">
     
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255,255,255,0.05);"></div>
 
     <div style="position: absolute; 
-                bottom: 80px; 
+                top: 80px; 
                 left: 50%; 
                 transform: translateX(-50%);
                 text-align: center;
@@ -20,8 +21,9 @@ layout: default
         <h2 style="margin:0; 
                    font-family: 'Arial Narrow', sans-serif-condensed, sans-serif; 
                    font-stretch: ultra-condensed; 
-                   letter-spacing: 1px; 
+                   letter-spacing: -1px; 
                    font-weight: 300; 
+                   font-size: 2.4rem;
                    text-transform: uppercase;
                    color: #000000 !important; 
                    text-shadow: none !important;">
@@ -30,21 +32,21 @@ layout: default
     </div>
 </div>
 
-<div class="container-fluid" style="margin-top: -60px; position: relative; z-index: 20;">
+<div class="container-fluid" style="margin-top: -120px; position: relative; z-index: 20;">
     <div class="row">
         <div class="col-md-8">
             <div class="card mb-4 shadow-sm" style="border-top: 5px solid #000;">
                 <div class="card-body">
-                    <h2 class="card-title h3 border-bottom pb-2">User Guide</h2>
-                    <div class="p-3" style="line-height: 1.6;">
-                        {{ content }}
+                    <h2 class="card-title h3 border-bottom pb-2" style="font-weight: bold;">User Guide</h2>
+                    <div class="p-3" style="line-height: 1.4; color: #000; font-size: 1rem;">
+                        {{ content | markdownify }}
                     </div>
                 </div>
             </div>
 
             <div class="card shadow-sm mb-4">
                 <div class="card-body">
-                    <h2 class="h5 card-title border-bottom pb-2">Sample Items</h2>
+                    <h2 class="h5 card-title border-bottom pb-2" style="font-weight: bold;">Sample Items</h2>
                     {% include index/carousel.html %}
                 </div>
             </div>
@@ -53,24 +55,21 @@ layout: default
         <div class="col-md-4">
             <div class="card mb-3 shadow-sm" style="background-color: #f8fdf8 !important; border: 1px solid #e1eee1 !important;">
                 <div class="card-body text-center">
-                    <h2 class="h5 card-title border-bottom pb-2">Time Span</h2>
+                    <h2 class="h5 card-title border-bottom pb-2" style="font-weight: bold;">Time Span</h2>
                     <p class="card-text h4">1977 to 1992</p>
                     <a href="{{ '/timeline.html' | relative_url }}" class="btn btn-sm btn-outline-success">View Timeline</a>
                 </div>
             </div>
-
             <div class="card mb-3 shadow-sm">
                 <div class="card-body">
                     {% include index/featured-terms.html field="subject" title="Top Subjects" %}
                 </div>
             </div>
-            
             <div class="card mb-3 shadow-sm">
                 <div class="card-body">
                     {% include index/featured-terms.html field="location" title="Locations" %}
                 </div>
             </div>
-
             {% include index/data-download.html %}
         </div>
     </div>
