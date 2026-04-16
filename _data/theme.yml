@@ -29,10 +29,12 @@ boot-theme-colors:
   dark: "#343a40"
 
 ##########
-# EXTRAS
+# EXTRAS & DATA CONNECTIONS
 ##########
 
 # Keep this as true to show the "Sample Items" on the home page
 home-featured-objects: true
-locations-fields: location
+
+# These lines connect your Browse pages to your posters.csv columns
 subjects-fields: subject
+locations-fields: location
