@@ -34,3 +34,4 @@ boot-theme-colors:
 
 # Keep this as true to show the "Sample Items" on the home page
 home-featured-objects: true
+locations-fields: location
