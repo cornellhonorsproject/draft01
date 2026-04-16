@@ -2,75 +2,52 @@
 layout: default
 ---
 
-<div id="home-banner" style="background-image: url('{{ site.baseurl }}/assets/img/banner1.jpg'); 
-            height: 250px; 
-            background-size: cover; 
-            background-position: center;
-            position: relative;
-            border-bottom: 2px solid #000;">
-    
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255,255,255,0.05);"></div>
-
-    <div style="position: absolute; 
-                top: 70px; 
-                left: 50%; 
-                transform: translateX(-50%);
-                text-align: center;
-                z-index: 10;
-                width: 100%;">
-        <h2 style="margin:0; 
-                   font-family: 'Arial Narrow', sans-serif-condensed, sans-serif; 
-                   font-stretch: ultra-condensed; 
-                   letter-spacing: 1px; 
-                   font-weight: 300; 
-                   font-size: 0.75rem !important;
-                   text-transform: uppercase;
-                   color: #000000 !important; 
-                   text-shadow: none !important;">
-            432 images of punk political statements
-        </h2>
-    </div>
+<div class="text-center mt-3 mb-4">
+    <h2 style="font-family: 'Arial Narrow', sans-serif-condensed, sans-serif; 
+               font-stretch: ultra-condensed; 
+               letter-spacing: 1px; 
+               font-weight: 300; 
+               font-size: 0.75rem;
+               text-transform: uppercase;
+               color: #000;
+               margin: 0;">
+        432 images of punk political statements
+    </h2>
 </div>
 
-<div class="container-fluid" style="margin-top: -140px; position: relative; z-index: 20;">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-8">
-            <div class="card mb-4 shadow-sm" style="border-top: 5px solid #000; border-radius: 0;">
-                <div class="card-body">
-                    <h2 class="card-title h4 border-bottom pb-2" style="font-weight: bold; font-family: sans-serif;">User Guide</h2>
-                    <div class="p-2">
-                        {{ content }}
-                    </div>
+            <div class="mb-5">
+                <h2 style="font-family: serif; font-size: 1.25rem; text-decoration: underline; font-weight: bold; margin-bottom: 15px; text-align: left;">
+                    User Guide
+                </h2>
+                <div style="line-height: 1.4; color: #000; font-family: sans-serif;">
+                    {{ content }}
                 </div>
             </div>
 
-            <div class="card shadow-sm mb-4" style="border-radius: 0;">
-                <div class="card-body">
-                    <h2 class="h6 card-title border-bottom pb-2" style="font-weight: bold;">Sample Items</h2>
-                    {% include index/carousel.html %}
-                </div>
+            <div class="mt-5 mb-4">
+                <h2 style="font-family: serif; font-size: 1.1rem; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 20px;">
+                    Sample Items
+                </h2>
+                {% include index/carousel.html %}
             </div>
         </div>
 
         <div class="col-md-4">
-            <div class="card mb-3 shadow-sm" style="background-color: #f8fdf8 !important; border: 1px solid #e1eee1 !important; border-radius: 0;">
-                <div class="card-body text-center">
-                    <h2 class="h6 card-title border-bottom pb-2" style="font-weight: bold;">Time Span</h2>
-                    <p class="card-text h5" style="font-weight: bold;">1977 to 1992</p>
-                    <a href="{{ '/timeline.html' | relative_url }}" class="btn btn-sm btn-outline-success">View Timeline</a>
-                </div>
+            <div class="mb-4 text-center" style="border: 1px solid #000; padding: 15px; background-color: #fff;">
+                <h2 style="font-size: 1rem; font-weight: bold; font-family: sans-serif;">Time Span</h2>
+                <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">1977 to 1992</p>
+                <a href="{{ '/timeline.html' | relative_url }}" class="btn btn-sm btn-dark mt-2">View Timeline</a>
             </div>
 
-            <div class="card mb-3 shadow-sm" style="border-radius: 0;">
-                <div class="card-body">
-                    {% include index/featured-terms.html field="subject" title="Top Subjects" %}
-                </div>
+            <div class="mb-3">
+                {% include index/featured-terms.html field="subject" title="Top Subjects" %}
             </div>
             
-            <div class="card mb-3 shadow-sm" style="border-radius: 0;">
-                <div class="card-body">
-                    {% include index/featured-terms.html field="location" title="Locations" %}
-                </div>
+            <div class="mb-3">
+                {% include index/featured-terms.html field="location" title="Locations" %}
             </div>
 
             {% include index/data-download.html %}
