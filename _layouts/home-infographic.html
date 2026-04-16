@@ -36,10 +36,13 @@ layout: default
         </div>
 
         <div class="col-md-4">
-            <div class="card mb-4 text-center shadow-sm" style="border-radius: 0; border: 1px solid rgba(0,0,0,.125); padding: 15px; background-color: #fafff0;">
-                <h2 class="h6 card-title border-bottom pb-2" style="font-weight: bold;">Time Span</h2>
-                <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">1977 to 1992</p>
-                <a href="{{ '/timeline.html' | relative_url }}" class="btn btn-sm btn-dark mt-2">View Timeline</a>
+            
+            <div class="card mb-3 shadow-sm" style="border-radius: 8px; border: 1px solid #e1eee1; background-color: #f8fdf8;">
+                <div class="card-body text-center">
+                    <h2 class="h6 card-title border-bottom pb-2" style="font-weight: bold;">Time Span</h2>
+                    <p class="card-text h5" style="font-weight: bold;">1977 to 1992</p>
+                    <a href="{{ '/timeline.html' | relative_url }}" class="btn btn-sm btn-outline-success">View Timeline</a>
+                </div>
             </div>
 
             <div class="mb-3">
@@ -50,7 +53,22 @@ layout: default
                 {% include index/featured-terms.html field="location" title="Locations" %}
             </div>
 
-            {% include index/data-download.html %}
+            <div class="card mb-3 shadow-sm" style="border-radius: 8px; border: 1px solid #e1d5f5; background-color: #f3f0ff;">
+                <div class="card-body">
+                    <h2 class="h6 card-title border-bottom pb-2" style="font-weight: bold;">Collection as Data</h2>
+                    <div class="d-flex flex-wrap justify-content-start" style="gap: 8px;">
+                        {% assign data_types = "Metadata CSV,Metadata JSON,Subjects CSV,Subjects JSON,GeoData JSON,Locations CSV,Locations JSON,Timeline JSON,Source Code" | split: "," %}
+                        {% for type in data_types %}
+                        <div style="flex: 0 1 auto;">
+                            <span class="btn btn-sm" style="width: 140px; font-size: 0.72rem; padding: 2px 4px; background-color: #e0f2ff; border: 1px solid #add8e6; color: #000; display: inline-block; text-align: center; border-radius: 4px;">
+                                {{ type }}
+                            </span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
