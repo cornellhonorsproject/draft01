@@ -90,7 +90,7 @@ function makeCard(obj) {
 
     // 3. Field data - Updated to skip Title and Description to avoid duplication
     card += '<p class="card-text">';
-    {% for f in fields %}{% unless f.hidden == 'true' %}
+    {% for f in fields %}{% unless f.hidden == 'true' or f.field == 'title' or f.field == 'description' %}
     // Check if the field exists and is NOT title or description
     if(obj[{{ f.field | jsonify }}] && {{ f.field | jsonify }} !== 'title' && {{ f.field | jsonify }} !== 'description'){
         {% if f.display_name %}card += '<strong>{{ f.display_name }}:</strong> ';{% endif %}
