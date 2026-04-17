@@ -46,19 +46,27 @@ function makeCard(obj) {
     
     let card = '<div class="item col-lg-4 col-md-6 mb-2"><div class="card h-100">';
     
+    // IMAGE/ICON SECTION
     if(obj.img) {
         card += `<a href="${itemHref}"><img class="card-img-top lazyload" src="${placeholder}" data-src="${obj.img}" alt="${obj.alt || obj.title}"></a>`;
     }
     
     card += '<div class="card-body text-center">';
 
-    // 1. UNIQUE DESCRIPTION: Only shows if it is NOT identical to the title
-    if (obj.description && obj.description.trim() !== obj.title.trim() && obj.description !== "") {
-        card += `<p class="card-text small text-muted mb-2">${obj.description}</p>`;
-    }
-
-    // 2. MAIN TITLE (Large Header)
+    // 1. TITLE (Now directly below the picture)
     card += `<h3 class="card-title h4"><a href="${itemHref}" class="text-dark">${obj.title}</a></h3>`;
+
+    // 2. DESCRIPTION (Now below the title)
+    // We use a temporary element to strip HTML from the description before comparing it to the title
+    if (obj.description && obj.description !== "") {
+        let tempDiv = document.createElement("div");
+        tempDiv.innerHTML = obj.description;
+        let plainDesc = tempDiv.textContent || tempDiv.innerText || "";
+        
+        if (plainDesc.trim() !== obj.title.trim()) {
+            card += `<p class="card-text small text-muted mb-2">${obj.description}</p>`;
+        }
+    }
     
     if(!obj.img) {
         const thumbIcon = getIcon(obj.display_template, obj.format, "thumb");
@@ -70,17 +78,15 @@ function makeCard(obj) {
         card += `<p class="card-text"><small><a class="btn btn-sm btn-outline-secondary" href="{{ page.url | relative_url }}#display_template:${encodeURIComponent(obj.display_template)}">${obj.display_template.toUpperCase().replace("_"," ")} ${mediaIcon}</a></small></p>`;
     }
 
-    // 3. METADATA FIELDS: Strict content-based blocking
+    // 3. METADATA SECTION
     card += '<p class="card-text">';
     {% for f in fields %}{% unless f.hidden == 'true' %}
     if(obj[{{ f.field | jsonify }}]) {
-        // CONTENT CHECK: Does this field's text match the Title or Description?
         let fieldValue = obj[{{ f.field | jsonify }}].toString().trim();
         let titleValue = obj.title.toString().trim();
-        let descValue = obj.description ? obj.description.toString().trim() : "";
-
-        // Only print if it's NOT the title and NOT the description
-        if (fieldValue !== titleValue && fieldValue !== descValue && {{ f.field | jsonify }} !== 'title') {
+        
+        // Skip printing if this field is just a repeat of the Title
+        if (fieldValue !== titleValue && {{ f.field | jsonify }} !== 'title' && {{ f.field | jsonify }} !== 'description') {
             {% if f.display_name %}card += '<strong>{{ f.display_name }}:</strong> ';{% endif %}
             {% if f.btn == 'true' %}
             const btns = fieldValue.split(";");
