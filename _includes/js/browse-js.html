@@ -24,7 +24,8 @@
  */
 var items = [
     {% for item in items %}
-    { {% for f in fields %}{% if item[f.field] %}{{ f.field | escape | jsonify }}:{{ item[f.field] | strip | jsonify }}, {%- endif -%}{%- endfor -%}
+    { "description": {{ item.description | strip | escape | jsonify }},
+        {% for f in fields %}{% if item[f.field] %}{{ f.field | escape | jsonify }}:{{ item[f.field] | strip | jsonify }}, {%- endif -%}{%- endfor -%}
         {% if item.image_thumb %}"img": {{ item.image_thumb | relative_url | jsonify }}, {%- endif -%} 
         {% if item.display_template %}"display_template": {{ item.display_template | jsonify }}, {%- endif -%}
         {% if item.format %}"format": {{ item.format | jsonify }}, {%- endif -%}
@@ -35,7 +36,7 @@ var items = [
 ];
 
 // Valid field names for URL-based searches
-const validFields = [{% for f in fields %}"{{ f.field }}",{% endfor %}"title","display_template"];
+const validFields = [{% for f in fields %}"{{ f.field }}",{% endfor %}"title","display_template","description"];
 
 // Date field names - add your date fields here
 const dateFields = ['date', 'created', 'published', 'modified', 'issued', 'date_created', 'date_published'];
