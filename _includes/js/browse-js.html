@@ -68,7 +68,8 @@ function makeCard(obj) {
     card += '<div class="card-body text-center">';
 
     // 1. Placement: Description (below picture, above title)
-    if(obj.description) {
+    // We check that description exists, is NOT the same as the title, and isn't empty
+    if (obj.description && obj.description !== obj.title && obj.description !== "") {
         card += `<p class="card-text small text-muted mb-2">${obj.description}</p>`;
     }
 
