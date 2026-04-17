@@ -17,63 +17,72 @@ var items = [
 
 /* function to create cards for each item */ 
 function makeCard(obj) {
-    // placeholder image for lazyload
     var placeholder = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E";
-    // find item link
     var itemHref = `{{ '/items/' | relative_url }}${ obj.parent ? obj.parent + ".html#" + obj.id : obj.id + ".html"}`; 
-    // find image
     var imgSrc, thumbIcon;
-    // if there is a thumb in the csv display it
+    
     if(obj.img) {
         imgSrc = obj.img;
-    // else add an icon based on display_template or format
     } else {
         thumbIcon = getIcon(obj.template,obj.format,"thumb");
     }
     var imgAlt = obj.alt ? obj.alt : obj.title;
 
-    // start card
-    var card = '<div class="item col-lg-4 col-md-6 mb-2"><div class="card">';
-    // top image for items with image
+    var card = '<div class="item col-lg-4 col-md-6 mb-2"><div class="card h-100">';
     if(imgSrc) {
         card += '<a href="' + itemHref + '"> <img class="card-img-top lazyload" src="' + placeholder + '" data-src="' + imgSrc + '" alt="' + imgAlt + '"></a>';
     }
-    // title
     card += '<div class="card-body text-center"> <h3 class="card-title h4"><a href="' + itemHref + '" class="text-dark">' + obj.title + '</a></h3>';
-    // icon thumb for item without image
+    
     if(thumbIcon){
         card += '<p><a href="' + itemHref + '">' + thumbIcon + '</a></p>';
     }
-    // other fields
+
     card += '<p class="card-text">';
     {% for f in fields %}{% unless f.hidden == 'true' %}
     if(obj[{{ f.field | jsonify }}]){
-    {% if f.display_name %}card += '<strong>{{ f.display_name }}:</strong> ';{% endif %}
-    {% if f.btn == 'true' %}
-    var btns = obj[{{ f.field | jsonify }}].split(";");
-    for (var i = 0, len = btns.length; i < len; i++) {
-        if(btns[i] != "") {
-        card += '<a class="btn btn-sm btn-secondary m-1 text-wrap" href="{{ page.url | relative_url }}#' + encodeURIComponent(btns[i].trim()) + '">' + btns[i].trim() + '</a>';
+        var fieldName = {{ f.field | jsonify }};
+        var fieldValue = obj[fieldName].toString();
+
+        // --- CUTOFF LOGIC START ---
+        if (fieldName === "description") {
+            // 1. Try cutting at "loc"
+            var locIndex = fieldValue.toLowerCase().indexOf("loc");
+            if (locIndex !== -1) {
+                fieldValue = fieldValue.substring(0, locIndex);
+            }
+            // 2. Try cutting at first comma
+            var commaIndex = fieldValue.indexOf(",");
+            if (commaIndex !== -1) {
+                fieldValue = fieldValue.substring(0, commaIndex);
+            }
+            fieldValue = fieldValue.trim().replace(/,\s*$/, "");
         }
-    }
-    {% else %}
-    card += obj[{{ f.field | jsonify }}];
-    {% endif %}
-    {% unless forloop.last %}card += '<br>';{% endunless %}
+        // --- CUTOFF LOGIC END ---
+
+        {% if f.display_name %}card += '<strong>{{ f.display_name }}:</strong> ';{% endif %}
+        {% if f.btn == 'true' %}
+            var btns = fieldValue.split(";");
+            for (var i = 0, len = btns.length; i < len; i++) {
+                if(btns[i] != "") {
+                card += '<a class="btn btn-sm btn-secondary m-1 text-wrap" href="{{ page.url | relative_url }}#' + encodeURIComponent(btns[i].trim()) + '">' + btns[i].trim() + '</a>';
+                }
+            }
+        {% else %}
+            card += fieldValue;
+        {% endif %}
+        card += '<br>';
     }
     {% endunless %}{% endfor %}
     card += '</p>';
-    // media type
+
     if(obj.template && obj.template != "") {
         mediaIcon = getIcon(obj.template,obj.format,"hidden");
         card += '<p class="card-text"><small><a class="btn btn-sm btn-outline-secondary" href="{{ page.url | relative_url }}#' + encodeURIComponent(obj.template) + '">' + 
         obj.template.toUpperCase().replace("_"," ") + ' ' + mediaIcon + '</a></small></p>';
     }
-    // view button
     card += '<hr><a href="' + itemHref + '" class="btn btn-sm btn-light" title="link to ' + obj.title + '">View Full Record</a>';
-    // close divs
     card += '</div></div></div>';
-    // send back big string
     return card;
 }
 
