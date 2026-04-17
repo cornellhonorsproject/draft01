@@ -46,7 +46,6 @@ function makeCard(obj) {
     
     let card = '<div class="item col-lg-4 col-md-6 mb-2"><div class="card h-100">';
     
-    // IMAGE SECTION
     if(obj.img) {
         card += `<a href="${itemHref}"><img class="card-img-top lazyload" src="${placeholder}" data-src="${obj.img}" alt="${obj.alt || obj.title}"></a>`;
     }
@@ -56,17 +55,20 @@ function makeCard(obj) {
     // 1. MAIN TITLE
     card += `<h3 class="card-title h4"><a href="${itemHref}" class="text-dark">${obj.title}</a></h3>`;
 
-    // 2. DESCRIPTION (Shortened at first comma with bold label)
+    // 2. DESCRIPTION CUTOFF (First Comma)
     if (obj.description && obj.description !== "") {
+        // Step A: Convert to plain text to remove links/HTML
         let tempDiv = document.createElement("div");
         tempDiv.innerHTML = obj.description;
-        let plainDesc = tempDiv.textContent || tempDiv.innerText || "";
+        let plainText = tempDiv.textContent || tempDiv.innerText || "";
         
-        if (plainDesc.trim() !== obj.title.trim()) {
-            // THE FIX: Cut at the first comma and add "Description:" label
-            let shortDesc = obj.description.split(',')[0].trim();
-            card += `<p class="card-text small text-muted mb-2"><strong>Description:</strong> ${shortDesc}</p>`;
-        }
+        // Step B: Find the first comma in the plain text
+        let commaPos = plainText.indexOf(',');
+        
+        // Step C: If a comma exists, take everything before it. Otherwise, take it all.
+        let finalDesc = (commaPos !== -1) ? plainText.substring(0, commaPos).trim() : plainText.trim();
+        
+        card += `<p class="card-text small text-muted mb-2"><strong>Description:</strong> ${finalDesc}</p>`;
     }
     
     if(!obj.img) {
@@ -79,24 +81,19 @@ function makeCard(obj) {
         card += `<p class="card-text"><small><a class="btn btn-sm btn-outline-secondary" href="{{ page.url | relative_url }}#display_template:${encodeURIComponent(obj.display_template)}">${obj.display_template.toUpperCase().replace("_"," ")} ${mediaIcon}</a></small></p>`;
     }
 
-    // 3. METADATA LIST (Date, Creator, etc.)
+    // 3. METADATA LIST
     card += '<p class="card-text">';
     {% for f in fields %}{% unless f.hidden == 'true' %}
     
-    // Skip 'title' and 'description' to avoid duplication in the list
+    // Explicitly exclude 'description' here so the long version doesn't appear in the list
     if(obj[{{ f.field | jsonify }}] && {{ f.field | jsonify }} !== 'title' && {{ f.field | jsonify }} !== 'description') {
         let fieldValue = obj[{{ f.field | jsonify }}].toString().trim();
-        
         {% if f.display_name %}card += '<strong>{{ f.display_name }}:</strong> ';{% endif %}
         {% if f.btn == 'true' %}
-        const btns = fieldValue.split(";");
-        btns.forEach(btn => {
-            if(btn.trim()) {
-                card += `<a class="btn btn-sm btn-secondary m-1 text-wrap" href="{{ page.url | relative_url }}#{{ f.field }}:${encodeURIComponent(btn.trim())}">${btn.trim()}</a>`;
-            }
-        });
+            const btns = fieldValue.split(";");
+            btns.forEach(btn => { if(btn.trim()) card += `<a class="btn btn-sm btn-secondary m-1 text-wrap" href="{{ page.url | relative_url }}#{{ f.field }}:${encodeURIComponent(btn.trim())}">${btn.trim()}</a>`; });
         {% else %}
-        card += fieldValue;
+            card += fieldValue;
         {% endif %}
         card += '<br>';
     }
