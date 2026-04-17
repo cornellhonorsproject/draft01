@@ -7,11 +7,11 @@ about-featured-image: banner2
 position: center
 heading: About the Collection
 sub-heading: "Preserving the Visual Politics of the Reagan-Bush Era"
-padding: 7em
+padding: 1.5em
 ---
 
-<div class="row">
-    <div class="col-md-12 text-center mb-5">
+<div class="row" style="margin-top: -50px;">
+    <div class="col-md-12 text-center mb-3">
         <img src="{{ '/assets/img/banner2.jpg' | relative_url }}" class="img-fluid rounded shadow" style="max-height: 400px; width: 100%; object-fit: cover;">
         <p class="text-muted small mt-2"><em>Visualizing the Reagan-Bush Era: A curated selection from the archives.</em></p>
     </div>
