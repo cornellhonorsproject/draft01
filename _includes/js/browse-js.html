@@ -58,39 +58,27 @@ function makeCard(obj) {
     
     let card = '<div class="item col-lg-4 col-md-6 mb-2"><div class="card">';
     
-    // Image or icon
+// Image or icon
     if(obj.img) {
         card += `<a href="${itemHref}"><img class="card-img-top lazyload" src="${placeholder}" data-src="${obj.img}" alt="${obj.alt || obj.title}"></a>`;
     }
     
+    // Start of the text area
+    card += '<div class="card-body text-center">';
+
+    // NEW: Insert description here (below picture, above title)
+    if(obj.description) {
+        card += `<p class="card-text small text-muted mb-2">${obj.description}</p>`;
+    }
+
     // Title
-    card += `<div class="card-body text-center"><h3 class="card-title h4"><a href="${itemHref}" class="text-dark">${obj.title}</a></h3>`;
+    card += `<h3 class="card-title h4"><a href="${itemHref}" class="text-dark">${obj.title}</a></h3>`;
     
     // Icon for items without images
     if(!obj.img) {
         const thumbIcon = getIcon(obj.display_template, obj.format, "thumb");
         if(thumbIcon) card += `<p><a href="${itemHref}">${thumbIcon}</a></p>`;
     }
-    
-    // Field data
-    card += '<p class="card-text">';
-    {% for f in fields %}{% unless f.hidden == 'true' %}
-    if(obj[{{ f.field | jsonify }}]){
-        {% if f.display_name %}card += '<strong>{{ f.display_name }}:</strong> ';{% endif %}
-        {% if f.btn == 'true' %}
-        const btns = obj[{{ f.field | jsonify }}].split(";");
-        btns.forEach(btn => {
-            if(btn.trim()) {
-                card += `<a class="btn btn-sm btn-secondary m-1 text-wrap" href="{{ page.url | relative_url }}#{{ f.field }}:${encodeURIComponent(btn.trim())}">${btn.trim()}</a>`;
-            }
-        });
-        {% else %}
-        card += obj[{{ f.field | jsonify }}];
-        {% endif %}
-        {% unless forloop.last %}card += '<br>';{% endunless %}
-    }
-    {% endunless %}{% endfor %}
-    card += '</p>';
     
     // Media type badge
     if(obj.display_template) {
