@@ -53,19 +53,19 @@ function makeCard(obj) {
     
     card += '<div class="card-body text-center">';
 
-    // 1. MAIN TITLE (Now at the top of the text area)
+    // 1. MAIN TITLE
     card += `<h3 class="card-title h4"><a href="${itemHref}" class="text-dark">${obj.title}</a></h3>`;
 
-    // 2. DESCRIPTION (Directly below Title)
-    // We strip HTML from the description to compare it accurately to the title
+    // 2. DESCRIPTION (Shortened at first comma with bold label)
     if (obj.description && obj.description !== "") {
         let tempDiv = document.createElement("div");
         tempDiv.innerHTML = obj.description;
         let plainDesc = tempDiv.textContent || tempDiv.innerText || "";
         
-        // Only show if the description isn't just a repeat of the title
         if (plainDesc.trim() !== obj.title.trim()) {
-            card += `<p class="card-text small text-muted mb-2">${obj.description}</p>`;
+            // THE FIX: Cut at the first comma and add "Description:" label
+            let shortDesc = obj.description.split(',')[0].trim();
+            card += `<p class="card-text small text-muted mb-2"><strong>Description:</strong> ${shortDesc}</p>`;
         }
     }
     
@@ -83,8 +83,7 @@ function makeCard(obj) {
     card += '<p class="card-text">';
     {% for f in fields %}{% unless f.hidden == 'true' %}
     
-    // THE FIX: We explicitly tell the loop to SKIP 'title' and 'description' fields
-    // so they don't print a second time here.
+    // Skip 'title' and 'description' to avoid duplication in the list
     if(obj[{{ f.field | jsonify }}] && {{ f.field | jsonify }} !== 'title' && {{ f.field | jsonify }} !== 'description') {
         let fieldValue = obj[{{ f.field | jsonify }}].toString().trim();
         
