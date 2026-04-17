@@ -24,7 +24,7 @@
  */
 var items = [
     {% for item in items %}
-    { "description": {{ item.description | strip | escape | jsonify }},
+    { "description": {% if item.description %}{{ item.description | strip | escape | jsonify }}{% else %}""{% endif %},
         {% for f in fields %}{% if item[f.field] %}{{ f.field | escape | jsonify }}:{{ item[f.field] | strip | jsonify }}, {%- endif -%}{%- endfor -%}
         {% if item.image_thumb %}"img": {{ item.image_thumb | relative_url | jsonify }}, {%- endif -%} 
         {% if item.display_template %}"display_template": {{ item.display_template | jsonify }}, {%- endif -%}
