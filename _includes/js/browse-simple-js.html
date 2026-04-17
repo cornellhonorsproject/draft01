@@ -44,21 +44,18 @@ function makeCard(obj) {
         var fieldName = {{ f.field | jsonify }};
         var fieldValue = obj[fieldName].toString();
 
-        // --- CUTOFF LOGIC START ---
+        // LOGICAL INTERCEPT: If field is description, find the first comma or "loc"
         if (fieldName === "description") {
-            // 1. Try cutting at "loc"
-            var locIndex = fieldValue.toLowerCase().indexOf("loc");
-            if (locIndex !== -1) {
-                fieldValue = fieldValue.substring(0, locIndex);
-            }
-            // 2. Try cutting at first comma
             var commaIndex = fieldValue.indexOf(",");
-            if (commaIndex !== -1) {
-                fieldValue = fieldValue.substring(0, commaIndex);
+            var locIndex = fieldValue.toLowerCase().indexOf("loc");
+            
+            // Determine the earliest cutoff point
+            var indices = [commaIndex, locIndex].filter(i => i !== -1);
+            if (indices.length > 0) {
+                var firstMatch = Math.min(...indices);
+                fieldValue = fieldValue.substring(0, firstMatch).trim().replace(/,\s*$/, "");
             }
-            fieldValue = fieldValue.trim().replace(/,\s*$/, "");
         }
-        // --- CUTOFF LOGIC END ---
 
         {% if f.display_name %}card += '<strong>{{ f.display_name }}:</strong> ';{% endif %}
         {% if f.btn == 'true' %}
