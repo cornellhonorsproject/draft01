@@ -70,22 +70,30 @@ function makeCard(obj) {
         card += `<p class="card-text"><small><a class="btn btn-sm btn-outline-secondary" href="{{ page.url | relative_url }}#display_template:${encodeURIComponent(obj.display_template)}">${obj.display_template.toUpperCase().replace("_"," ")} ${mediaIcon}</a></small></p>`;
     }
 
-    // 3. METADATA FIELDS: Strict block to prevent Title/Description from repeating
+    // 3. METADATA FIELDS: Strict content-based blocking
     card += '<p class="card-text">';
     {% for f in fields %}{% unless f.hidden == 'true' %}
-    if(obj[{{ f.field | jsonify }}] && {{ f.field | jsonify }} !== 'title' && {{ f.field | jsonify }} !== 'description'){
-        {% if f.display_name %}card += '<strong>{{ f.display_name }}:</strong> ';{% endif %}
-        {% if f.btn == 'true' %}
-        const btns = obj[{{ f.field | jsonify }}].split(";");
-        btns.forEach(btn => {
-            if(btn.trim()) {
-                card += `<a class="btn btn-sm btn-secondary m-1 text-wrap" href="{{ page.url | relative_url }}#{{ f.field }}:${encodeURIComponent(btn.trim())}">${btn.trim()}</a>`;
-            }
-        });
-        {% else %}
-        card += obj[{{ f.field | jsonify }}];
-        {% endif %}
-        card += '<br>';
+    if(obj[{{ f.field | jsonify }}]) {
+        // CONTENT CHECK: Does this field's text match the Title or Description?
+        let fieldValue = obj[{{ f.field | jsonify }}].toString().trim();
+        let titleValue = obj.title.toString().trim();
+        let descValue = obj.description ? obj.description.toString().trim() : "";
+
+        // Only print if it's NOT the title and NOT the description
+        if (fieldValue !== titleValue && fieldValue !== descValue && {{ f.field | jsonify }} !== 'title') {
+            {% if f.display_name %}card += '<strong>{{ f.display_name }}:</strong> ';{% endif %}
+            {% if f.btn == 'true' %}
+            const btns = fieldValue.split(";");
+            btns.forEach(btn => {
+                if(btn.trim()) {
+                    card += `<a class="btn btn-sm btn-secondary m-1 text-wrap" href="{{ page.url | relative_url }}#{{ f.field }}:${encodeURIComponent(btn.trim())}">${btn.trim()}</a>`;
+                }
+            });
+            {% else %}
+            card += fieldValue;
+            {% endif %}
+            card += '<br>';
+        }
     }
     {% endunless %}{% endfor %}
     card += '</p>';
