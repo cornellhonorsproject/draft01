@@ -104,7 +104,7 @@ function makeCard(obj) {
     {% endunless %}{% endfor %}
     card += '</p>';
     
-    card += `<hr><a href="${itemHref}" class="btn btn-sm btn-light" title="link to ${obj.title}">View Full Record</a></div></div></div>`;
+    card += `<hr><a href="${itemHref}" class="btn btn-sm btn-light" description="link to ${obj.description}">View Full Record</a></div></div></div>`;
     return card;
 }
 
