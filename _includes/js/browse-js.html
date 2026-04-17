@@ -55,20 +55,17 @@ function makeCard(obj) {
     // 1. MAIN TITLE
     card += `<h3 class="card-title h4"><a href="${itemHref}" class="text-dark">${obj.title}</a></h3>`;
 
-    // 2. DESCRIPTION CUTOFF (First Comma)
-    if (obj.description && obj.description !== "") {
-        // Step A: Convert to plain text to remove links/HTML
-        let tempDiv = document.createElement("div");
-        tempDiv.innerHTML = obj.description;
-        let plainText = tempDiv.textContent || tempDiv.innerText || "";
+    // 2. DESCRIPTION AREA (Targeting "loc")
+    let descValue = obj.description || "";
+    if (descValue !== "") {
+        // Find "loc" regardless of case
+        let locIndex = descValue.toLowerCase().indexOf("loc");
+        let shortDesc = (locIndex !== -1) ? descValue.substring(0, locIndex).trim() : descValue;
         
-        // Step B: Find the first comma in the plain text
-        let commaPos = plainText.indexOf(',');
-        
-        // Step C: If a comma exists, take everything before it. Otherwise, take it all.
-        let finalDesc = (commaPos !== -1) ? plainText.substring(0, commaPos).trim() : plainText.trim();
-        
-        card += `<p class="card-text small text-muted mb-2"><strong>Description:</strong> ${finalDesc}</p>`;
+        // Remove trailing commas if they exist after the cut
+        shortDesc = shortDesc.replace(/,\s*$/, "");
+
+        card += `<p class="card-text small text-muted mb-2"><strong>Description:</strong> ${shortDesc}</p>`;
     }
     
     if(!obj.img) {
@@ -81,13 +78,18 @@ function makeCard(obj) {
         card += `<p class="card-text"><small><a class="btn btn-sm btn-outline-secondary" href="{{ page.url | relative_url }}#display_template:${encodeURIComponent(obj.display_template)}">${obj.display_template.toUpperCase().replace("_"," ")} ${mediaIcon}</a></small></p>`;
     }
 
-    // 3. METADATA LIST
+    // 3. METADATA LOOP (Applying same "loc" logic here as a backup)
     card += '<p class="card-text">';
     {% for f in fields %}{% unless f.hidden == 'true' %}
-    
-    // Explicitly exclude 'description' here so the long version doesn't appear in the list
     if(obj[{{ f.field | jsonify }}] && {{ f.field | jsonify }} !== 'title' && {{ f.field | jsonify }} !== 'description') {
         let fieldValue = obj[{{ f.field | jsonify }}].toString().trim();
+        
+        // TEST: If this specific metadata field contains "loc", cut it
+        let locIndexField = fieldValue.toLowerCase().indexOf("loc");
+        if (locIndexField !== -1) {
+            fieldValue = fieldValue.substring(0, locIndexField).trim().replace(/,\s*$/, "");
+        }
+
         {% if f.display_name %}card += '<strong>{{ f.display_name }}:</strong> ';{% endif %}
         {% if f.btn == 'true' %}
             const btns = fieldValue.split(";");
